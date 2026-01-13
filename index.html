@@ -35,7 +35,8 @@
             align-items: center;
         }
         .logo img {
-            height: 120px;
+            height: 200px;
+                        position: relative;
             object-fit: contain;
         }
         .contact-header {
@@ -55,6 +56,45 @@
         .contact-header a:hover {
             background: rgba(255,255,255,0.1);
         }
+                .menu-dropdown {
+                                position: absolute;
+                                left: 20px;
+                                top: 50%;
+                                transform: translateY(-50%);
+                                z-index: 101;
+                            }
+                .menu-btn {
+                                background: #2d5a7b;
+                                color: white;
+                                border: none;
+                                padding: 10px 15px;
+                                cursor: pointer;
+                                border-radius: 4px;
+                                font-size: 14px;
+                            }
+                .dropdown-content {
+                                display: none;
+                                position: absolute;
+                                top: 100%;
+                                left: 0;
+                                background: white;
+                                box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+                                border-radius: 4px;
+                                min-width: 150px;
+                                margin-top: 5px;
+                            }
+                .menu-dropdown:hover .dropdown-content {
+                                display: block;
+                            }
+                .dropdown-content a {
+                                display: block;
+                                padding: 12px 20px;
+                                color: #1a3a52;
+                                text-decoration: none;
+                            }
+                .dropdown-content a:hover {
+                                background: #f0f0f0;
+                            }
         .hero {
             background: linear-gradient(135deg, #1a3a52 0%, #2d5a7b 100%);
             color: white;
@@ -250,13 +290,18 @@
 </head>
 <body>
     <header>
+                    <!-- Dropdown Menu Button -->
+                    <div class="menu-dropdown">
+                                        <button class="menu-btn">☰ Contact</button>
+                                        <div class="dropdown-content">
+                                                                <a href="tel:+15627269773">📞 Call</a>
+                                                                <a href="mailto:ernesto@nsdevcap.com">✉️ Email</a>
+                                                            </div>
+                                    </div>
         <div class="container">
             <div class="logo">
                                 <a href="/">
                 <img src="logo.png" alt="North Star Capital"></a>
-            </div>
-            <div class="contact-header">
-                <a href="tel:++15627269773">Call</a>                <a href="mailto:ernesto@nsdevcap.com">Email</a>
             </div>
         </div>
     </header>
