@@ -30,10 +30,16 @@
     section { padding: 60px 0; }
     h2 { font-size: 2.5rem; margin-bottom: 3rem; text-align: center; color: white; }
     .programs { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; margin-bottom: 40px; }
-    .program-card { background: white; padding: 40px 30px; border-radius: 12px; box-shadow: 0 10px 30px rgba(26,58,82,0.1); border: 1px solid #e0e0e0; transition: transform 0.3s ease, box-shadow 0.3s ease; position: relative; overflow: hidden; }
+    .program-card { background: white; padding: 40px 30px; border-radius: 12px; box-shadow: 0 10px 30px rgba(26,58,82,0.1); border: 1px solid #e0e0e0; transition: transform 0.3s ease, box-shadow 0.3s ease; position: relative; overflow: hidden; min-height: 420px; display: flex; flex-direction: column; }
+    .program-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-size: cover; background-position: center; opacity: 0.08; z-index: 0; transition: opacity 0.3s ease; }
+    .program-card:hover::before { opacity: 0.15; }
+    .program-card.fix-flip::before { background-image: url('https://images.unsplash.com/photo-1582407947304-fd86f028f716?w=800&q=80'); }
+    .program-card.rental::before { background-image: url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&q=80'); }
+    .program-card.developer::before { background-image: url('https://images.unsplash.com/photo-1541888946425-d81bb192404c?w=800&q=80'); }
     .program-card:hover { transform: translateY(-8px); box-shadow: 0 15px 40px rgba(26,58,82,0.15); }
-    .program-icon { font-size: 3rem; margin-bottom: 20px; display: block; }
-    .program-card h3 { font-size: 1.6rem; margin-bottom: 1rem; color: #1a3a52; font-weight: 700; }
+    .program-card h3 { font-size: 1.6rem; margin-bottom: 1rem; color: #1a3a52; font-weight: 700; position: relative; z-index: 1; }
+    .program-card p { margin-bottom: 1.5rem; color: #555; line-height: 1.6; font-size: 1.05rem; position: relative; z-index: 1; }
+    .program-card ul { list-style: none; margin: 0; padding: 0; position: relative; z-index: 1; }
     .program-card p { margin-bottom: 1.5rem; color: #555; line-height: 1.6; font-size: 1.05rem; }
     .program-card ul { list-style: none; margin: 0; padding: 0; }
     .program-card li { padding: 12px 0; border-bottom: 1px solid #f0f0f0; display: flex; justify-content: space-between; align-items: center; }
@@ -89,8 +95,7 @@
   <section id="loan-programs" class="container">
     <h2>Loan Programs</h2>
     <div class="programs">
-      <div class="program-card">
-        <span class="program-icon">🏠</span>
+      <div class="program-card fix-flip">
         <h3>Fix & Flip</h3>
         <p>Short-term financing for investors acquiring and renovating properties for resale.</p>
         <ul>
@@ -101,8 +106,7 @@
           <li><strong>Loan Size:</strong> <span>$75K - $5M</span></li>
         </ul>
       </div>
-      <div class="program-card">
-        <span class="program-icon">📈</span>
+      <div class="program-card rental">
         <h3>Landlords / BRRRR / DSCR</h3>
         <p>Bridge loans for rental property acquisitions and stabilization.</p>
         <ul>
@@ -113,8 +117,7 @@
           <li><strong>Loan Size:</strong> <span>$100K - $5M</span></li>
         </ul>
       </div>
-      <div class="program-card">
-        <span class="program-icon">🏗️</span>
+      <div class="program-card developer">
         <h3>Developers / Ground-Up</h3>
         <p>Construction financing for small-scale development and new builds.</p>
         <ul>
