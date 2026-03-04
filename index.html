@@ -30,12 +30,11 @@
     section { padding: 60px 0; }
     h2 { font-size: 2.5rem; margin-bottom: 3rem; text-align: center; color: white; }
     .programs { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; margin-bottom: 40px; }
-    .program-card { background: white; padding: 40px 30px; border-radius: 12px; box-shadow: 0 10px 30px rgba(26,58,82,0.1); border: 1px solid #e0e0e0; transition: transform 0.3s ease, box-shadow 0.3s ease; position: relative; overflow: hidden; min-height: 420px; display: flex; flex-direction: column; }
-    .program-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-size: cover; background-position: center; opacity: 0.12; z-index: 0; transition: opacity 0.3s ease; }
-    .program-card:hover::before { opacity: 0.25; }
-    .program-card.fix-flip::before { background-image: url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=800&q=80'); }
-    .program-card.rental::before { background-image: url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&q=80'); }
-    .program-card.developer::before { background-image: url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80'); }
+    .program-card { background: white; padding: 40px 30px; border-radius: 12px; box-shadow: 0 10px 30px rgba(26,58,82,0.1); border: 1px solid #e0e0e0; transition: transform 0.3s ease, box-shadow 0.3s ease; min-height: 420px; display: flex; flex-direction: column; position: relative; overflow: hidden; }
+    .program-card { background-size: cover; background-position: center; background-blend-mode: overlay; }
+    .program-card.fix-flip { background-image: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.85)), url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=600&q=60'); }
+    .program-card.rental { background-image: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.85)), url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600&q=60'); }
+    .program-card.developer { background-image: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.85)), url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&q=60'); }
     .program-card:hover { transform: translateY(-8px); box-shadow: 0 15px 40px rgba(26,58,82,0.15); }
     .program-card h3 { font-size: 1.6rem; margin-bottom: 1rem; color: #1a3a52; font-weight: 700; position: relative; z-index: 1; }
     .program-card p { margin-bottom: 1.5rem; color: #555; line-height: 1.6; font-size: 1.05rem; position: relative; z-index: 1; }
