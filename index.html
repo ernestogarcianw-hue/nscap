@@ -29,13 +29,17 @@
     .cta-secondary:hover { background: rgba(255,255,255,0.1); }
     section { padding: 60px 0; }
     h2 { font-size: 2.5rem; margin-bottom: 3rem; text-align: center; color: white; }
-    .programs { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-bottom: 40px; }
-    .program-card { background: white; padding: 30px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); border-top: 4px solid #c9a961; }
-    .program-card h3 { font-size: 1.5rem; margin-bottom: 1rem; color: #1a3a52; }
-    .program-card p { margin-bottom: 1rem; color: #666; }
-    .program-card ul { list-style: none; margin-top: 1rem; }
-    .program-card li { padding: 8px 0; border-bottom: 1px solid #eee; }
+    .programs { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; margin-bottom: 40px; }
+    .program-card { background: white; padding: 40px 30px; border-radius: 12px; box-shadow: 0 10px 30px rgba(26,58,82,0.1); border: 1px solid #e0e0e0; transition: transform 0.3s ease, box-shadow 0.3s ease; position: relative; overflow: hidden; }
+    .program-card:hover { transform: translateY(-8px); box-shadow: 0 15px 40px rgba(26,58,82,0.15); }
+    .program-icon { font-size: 3rem; margin-bottom: 20px; display: block; }
+    .program-card h3 { font-size: 1.6rem; margin-bottom: 1rem; color: #1a3a52; font-weight: 700; }
+    .program-card p { margin-bottom: 1.5rem; color: #555; line-height: 1.6; font-size: 1.05rem; }
+    .program-card ul { list-style: none; margin: 0; padding: 0; }
+    .program-card li { padding: 12px 0; border-bottom: 1px solid #f0f0f0; display: flex; justify-content: space-between; align-items: center; }
     .program-card li:last-child { border-bottom: none; }
+    .program-card li strong { color: #2d5a7b; font-weight: 600; }
+    .program-card li span { color: #666; text-align: right; }
     .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-bottom: 40px; }
     .step { text-align: center; padding: 30px 20px; background: rgba(255,255,255,0.1); border-radius: 8px; backdrop-filter: blur(10px); }
     .step-number { display: inline-block; width: 70px; height: 70px; background: #c9a961; color: #1a3a52; border-radius: 50%; line-height: 70px; font-size: 2rem; font-weight: bold; margin-bottom: 1rem; box-shadow: 0 4px 15px rgba(201,169,97,0.4); }
@@ -86,36 +90,39 @@
     <h2>Loan Programs</h2>
     <div class="programs">
       <div class="program-card">
+        <span class="program-icon">🏠</span>
         <h3>Fix & Flip</h3>
         <p>Short-term financing for investors acquiring and renovating properties for resale.</p>
         <ul>
-          <li><strong>LTV/LTC:</strong> Up to 75-90%</li>
-          <li><strong>Term:</strong> 6-12 months</li>
-          <li><strong>Rates:</strong> Starting at 9-12%</li>
-          <li><strong>Points:</strong> 2-3 points</li>
-          <li><strong>Loan Size:</strong> $75K - $5M</li>
+          <li><strong>LTV/LTC:</strong> <span>Up to 75-90%</span></li>
+          <li><strong>Term:</strong> <span>6-12 months</span></li>
+          <li><strong>Rates:</strong> <span>Starting at 9-12%</span></li>
+          <li><strong>Points:</strong> <span>2-3 points</span></li>
+          <li><strong>Loan Size:</strong> <span>$75K - $5M</span></li>
         </ul>
       </div>
       <div class="program-card">
+        <span class="program-icon">📈</span>
         <h3>Landlords / BRRRR / DSCR</h3>
         <p>Bridge loans for rental property acquisitions and stabilization.</p>
         <ul>
-          <li><strong>LTV:</strong> Up to 75%</li>
-          <li><strong>DSCR:</strong> 1.0x+ preferred</li>
-          <li><strong>Term:</strong> 6-24 months</li>
-          <li><strong>Rates:</strong> Starting at 8-11%</li>
-          <li><strong>Loan Size:</strong> $100K - $5M</li>
+          <li><strong>LTV:</strong> <span>Up to 75%</span></li>
+          <li><strong>DSCR:</strong> <span>1.0x+ preferred</span></li>
+          <li><strong>Term:</strong> <span>6-24 months</span></li>
+          <li><strong>Rates:</strong> <span>Starting at 8-11%</span></li>
+          <li><strong>Loan Size:</strong> <span>$100K - $5M</span></li>
         </ul>
       </div>
       <div class="program-card">
+        <span class="program-icon">🏗️</span>
         <h3>Developers / Ground-Up</h3>
         <p>Construction financing for small-scale development and new builds.</p>
         <ul>
-          <li><strong>LTC:</strong> Up to 80-90%</li>
-          <li><strong>Land Leverage:</strong> Up to 50%</li>
-          <li><strong>Draw Structure:</strong> Inspection-based</li>
-          <li><strong>Rates:</strong> Starting at 10-13%</li>
-          <li><strong>Loan Size:</strong> $200K - $10M</li>
+          <li><strong>LTC:</strong> <span>Up to 80-90%</span></li>
+          <li><strong>Land Leverage:</strong> <span>Up to 50%</span></li>
+          <li><strong>Draw Structure:</strong> <span>Inspection-based</span></li>
+          <li><strong>Rates:</strong> <span>Starting at 10-13%</span></li>
+          <li><strong>Loan Size:</strong> <span>$200K - $10M</span></li>
         </ul>
       </div>
     </div>
