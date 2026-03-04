@@ -52,17 +52,21 @@
     .step-number { display: inline-block; width: 70px; height: 70px; background: #c9a961; color: #1a3a52; border-radius: 50%; line-height: 70px; font-size: 2rem; font-weight: bold; margin-bottom: 1rem; box-shadow: 0 4px 15px rgba(201,169,97,0.4); }
     .step h3 { font-size: 1.4rem; margin-bottom: 0.75rem; color: white; font-weight: 700; }
     .step p { color: rgba(255,255,255,0.9); font-size: 1.05rem; line-height: 1.5; }
-    #scenario-form { background: linear-gradient(135deg, #1a3a52 0%, #2d5a7b 100%); padding: 80px 0; }
-    form { max-width: 900px; margin: 0 auto; background: white; padding: 50px; border-radius: 16px; box-shadow: 0 20px 60px rgba(0,0,0,0.3); }
+    #scenario-form { background: linear-gradient(135deg, #1a3a52 0%, #2d5a7b 100%); padding: 80px 0; background-attachment: fixed; }
+    form { max-width: 1000px; margin: 0 auto; }
+    .form-section { background: white; border-radius: 16px; padding: 40px; margin-bottom: 30px; box-shadow: 0 10px 40px rgba(0,0,0,0.15); border: 1px solid rgba(255,255,255,0.1); }
+    .form-section h3 { color: #1a3a52; font-size: 1.4rem; font-weight: 700; margin-bottom: 25px; padding-bottom: 15px; border-bottom: 2px solid #f0f0f0; display: flex; align-items: center; gap: 12px; }
+    .form-section h3::before { content: ''; width: 4px; height: 28px; background: linear-gradient(135deg, #c9a961, #b89750); border-radius: 2px; display: block; }
     .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; margin-bottom: 25px; }
     .form-group { margin-bottom: 25px; }
-    .form-group label { display: block; margin-bottom: 8px; font-weight: 600; color: #1a3a52; font-size: 0.95rem; letter-spacing: 0.3px; text-transform: uppercase; }
-    .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 14px 16px; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 1rem; font-family: inherit; transition: border-color 0.3s ease, box-shadow 0.3s ease; background: #fafafa; }
-    .form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-color: #c9a961; box-shadow: 0 0 0 3px rgba(201,169,97,0.1); background: white; }
+    .form-group label { display: block; margin-bottom: 8px; font-weight: 600; color: #2d5a7b; font-size: 0.9rem; letter-spacing: 0.5px; text-transform: uppercase; }
+    .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 14px 16px; border: 2px solid #e8e8e8; border-radius: 8px; font-size: 1rem; font-family: inherit; transition: all 0.3s ease; background: #fafafa; }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-color: #c9a961; box-shadow: 0 0 0 4px rgba(201,169,97,0.12); background: white; }
     .form-group textarea { min-height: 140px; resize: vertical; }
-    .submit-btn { background: linear-gradient(135deg, #c9a961 0%, #b89750 100%); color: white; padding: 18px 60px; border: none; border-radius: 8px; font-size: 1.1rem; font-weight: 700; cursor: pointer; width: 100%; text-transform: uppercase; letter-spacing: 1px; transition: transform 0.3s ease, box-shadow 0.3s ease; margin-top: 10px; }
-    .submit-btn:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(201,169,97,0.4); }
-    .submit-btn:active { transform: translateY(-1px); }
+    .submit-section { text-align: center; margin-top: 40px; }
+    .submit-btn { background: linear-gradient(135deg, #c9a961 0%, #b89750 100%); color: white; padding: 18px 80px; border: none; border-radius: 50px; font-size: 1.1rem; font-weight: 700; cursor: pointer; text-transform: uppercase; letter-spacing: 1.5px; transition: all 0.3s ease; box-shadow: 0 10px 30px rgba(201,169,97,0.3); display: inline-block; }
+    .submit-btn:hover { transform: translateY(-4px); box-shadow: 0 15px 40px rgba(201,169,97,0.5); }
+    .submit-btn:active { transform: translateY(-2px); }
     footer { background: #1a3a52; color: white; text-align: center; padding: 30px 0; }
     @media (max-width: 768px) { .hero h1 { font-size: 2rem; } .form-row { grid-template-columns: 1fr; } }
   </style>
