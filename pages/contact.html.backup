@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact - North Star Capital</title>
+  <link rel="icon" type="image/png" href="../favicon.png">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif; line-height: 1.6; color: #333; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+    header { background: white; padding: 0.25rem 0; position: sticky; top: 0; z-index: 100; }
+    header .container { display: flex; justify-content: center; align-items: center; position: relative; }
+    .logo img { height: 150px; object-fit: contain; }
+    .menu-dropdown { position: absolute; left: 20px; top: 50%; transform: translateY(-50%); z-index: 101; }
+    .menu-btn { background: #2d5a7b; color: white; border: none; padding: 10px 15px; cursor: pointer; border-radius: 4px; font-size: 14px; }
+    .dropdown-content { display: none; position: absolute; top: 100%; left: 0; background: white; box-shadow: 0 4px 8px rgba(0,0,0,0.2); border-radius: 4px; min-width: 150px; margin-top: 5px; }
+    .menu-dropdown:hover .dropdown-content { display: block; }
+    .dropdown-content a { display: block; padding: 12px 20px; color: #1a3a52; text-decoration: none; }
+    .dropdown-content a:hover { background: #f0f0f0; }
+    .page-header { background: linear-gradient(135deg, #1a3a52 0%, #2d5a7b 100%); color: white; padding: 60px 0; text-align: center; }
+    .page-header h1 { font-size: 2.5rem; margin-bottom: 1rem; }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 40px; }
+    .contact-info h2 { color: #1a3a52; font-size: 1.5rem; margin-bottom: 20px; }
+    .contact-item { display: flex; align-items: flex-start; margin-bottom: 25px; }
+    .contact-icon { width: 50px; height: 50px; background: #c9a961; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.2rem; flex-shrink: 0; margin-right: 15px; }
+    .contact-text h3 { color: #1a3a52; font-size: 1rem; margin-bottom: 5px; }
+    .contact-text p { color: #666; }
+    .contact-text a { color: #2d5a7b; text-decoration: none; }
+    .hours-box { background: #f8f9fa; padding: 25px; border-radius: 8px; margin-top: 30px; }
+    .hours-box h3 { color: #1a3a52; margin-bottom: 15px; }
+    .hours-box p { color: #666; margin-bottom: 5px; }
+    form { background: #f8f9fa; padding: 35px; border-radius: 8px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px; }
+    .form-group { margin-bottom: 20px; }
+    .form-group label { display: block; margin-bottom: 5px; font-weight: 600; color: #1a3a52; }
+    .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px; font-size: 1rem; font-family: inherit; }
+    .form-group textarea { min-height: 120px; resize: vertical; }
+    .submit-btn { background: #c9a961; color: white; padding: 15px 40px; border: none; border-radius: 5px; font-size: 1.1rem; font-weight: bold; cursor: pointer; width: 100%; }
+    .submit-btn:hover { background: #b89750; }
+    footer { background: #1a3a52; color: white; text-align: center; padding: 30px 0; margin-top: 60px; }
+    @media (max-width: 768px) { .page-header h1 { font-size: 2rem; } .contact-grid { grid-template-columns: 1fr; } .form-row { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="menu-dropdown">
+      <button class="menu-btn">Menu</button>
+      <div class="dropdown-content">
+        <a href="../index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="faq.html">FAQ</a>
+        <a href="contact.html">Contact</a>
+        <a href="tel:+15627269773">Call</a>
+        <a href="mailto:ernesto@nsdevcap.com">Email</a>
+      </div>
+    </div>
+    <div class="container">
+      <div class="logo"><a href="../index.html"><img src="../logo.png" alt="North Star Capital"></a></div>
+    </div>
+  </header>
+  <section class="page-header">
+    <div class="container"><h1>Contact Us</h1><p>Ready to discuss your deal? We're here to help.</p></div>
+  </section>
+  <section>
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-info">
+          <h2>Get in Touch</h2>
+          <div class="contact-item">
+            <div class="contact-icon">P</div>
+            <div class="contact-text"><h3>Phone</h3><p><a href="tel:+15627269773">(562) 726-9773</a></p></div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">E</div>
+            <div class="contact-text"><h3>Email</h3><p><a href="mailto:ernesto@nsdevcap.com">ernesto@nsdevcap.com</a></p></div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">L</div>
+            <div class="contact-text"><h3>Location</h3><p>Phoenix, AZ<br>Serving nationwide</p></div>
+          </div>
+          <div class="hours-box">
+            <h3>Business Hours</h3>
+            <p>Mon-Fri: 8am - 6pm MST</p>
+            <p>Sat: By appointment</p>
+          </div>
+        </div>
+        <div class="contact-form">
+          <h2>Send a Message</h2>
+          <form action="https://formspree.io/f/xgooeboa" method="POST">
+            <div class="form-row">
+              <div class="form-group"><label for="name">Name *</label><input type="text" id="name" name="name" required></div>
+              <div class="form-group"><label for="phone">Phone *</label><input type="tel" id="phone" name="phone" required></div>
+            </div>
+            <div class="form-group"><label for="email">Email *</label><input type="email" id="email" name="email" required></div>
+            <div class="form-group"><label for="subject">Subject</label>
+              <select id="subject" name="subject">
+                <option value="general">General Inquiry</option>
+                <option value="fix-flip">Fix & Flip Loan</option>
+                <option value="rental">Rental/BRRRR Loan</option>
+                <option value="construction">Construction Loan</option>
+              </select>
+            </div>
+            <div class="form-group"><label for="message">Message *</label><textarea id="message" name="message" placeholder="Tell us about your deal..." required></textarea></div>
+            <button type="submit" class="submit-btn">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer><div class="container"><p>2026 North Star Capital. All rights reserved.</p></div></footer>
+</body>
+</html>

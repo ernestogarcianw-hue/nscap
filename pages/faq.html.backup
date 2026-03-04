@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQ - North Star Capital</title>
+  <link rel="icon" type="image/png" href="../favicon.png">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif; line-height: 1.6; color: #333; }
+    .container { max-width: 900px; margin: 0 auto; padding: 0 20px; }
+    header { background: white; padding: 0.25rem 0; position: sticky; top: 0; z-index: 100; }
+    header .container { display: flex; justify-content: center; align-items: center; position: relative; }
+    .logo img { height: 150px; object-fit: contain; }
+    .menu-dropdown { position: absolute; left: 20px; top: 50%; transform: translateY(-50%); z-index: 101; }
+    .menu-btn { background: #2d5a7b; color: white; border: none; padding: 10px 15px; cursor: pointer; border-radius: 4px; font-size: 14px; }
+    .dropdown-content { display: none; position: absolute; top: 100%; left: 0; background: white; box-shadow: 0 4px 8px rgba(0,0,0,0.2); border-radius: 4px; min-width: 150px; margin-top: 5px; }
+    .menu-dropdown:hover .dropdown-content { display: block; }
+    .dropdown-content a { display: block; padding: 12px 20px; color: #1a3a52; text-decoration: none; }
+    .dropdown-content a:hover { background: #f0f0f0; }
+    .page-header { background: linear-gradient(135deg, #1a3a52 0%, #2d5a7b 100%); color: white; padding: 60px 0; text-align: center; }
+    .page-header h1 { font-size: 2.5rem; margin-bottom: 1rem; }
+    .faq-section { padding: 50px 0; }
+    .faq-category { margin-bottom: 40px; }
+    .faq-category h2 { color: #c9a961; font-size: 1.3rem; margin-bottom: 20px; border-bottom: 2px solid #eee; padding-bottom: 10px; }
+    .faq-item { margin-bottom: 15px; background: #f8f9fa; border-radius: 8px; overflow: hidden; }
+    .faq-question { padding: 20px; font-weight: 600; color: #1a3a52; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+    .faq-question:hover { background: #f0f0f0; }
+    .faq-question::after { content: '+'; font-size: 1.5rem; color: #c9a961; }
+    .faq-item.open .faq-question::after { content: ''; }
+    .faq-answer { padding: 0 20px; max-height: 0; overflow: hidden; transition: all 0.3s ease; color: #555; }
+    .faq-item.open .faq-answer { padding: 0 20px 20px; max-height: 500px; }
+    .faq-answer p { margin-bottom: 10px; }
+    .faq-answer ul { margin: 10px 0 10px 25px; }
+    .faq-answer li { margin-bottom: 5px; }
+    footer { background: #1a3a52; color: white; text-align: center; padding: 30px 0; }
+    .cta-box { background: #f8f9fa; border-left: 4px solid #c9a961; padding: 25px; margin-top: 40px; border-radius: 0 8px 8px 0; }
+    .cta-box h3 { color: #1a3a52; margin-bottom: 10px; }
+    .cta-box a { display: inline-block; background: #c9a961; color: white; padding: 12px 30px; text-decoration: none; border-radius: 5px; margin-top: 15px; font-weight: 600; }
+    .cta-box a:hover { background: #b89750; }
+    @media (max-width: 768px) { .page-header h1 { font-size: 2rem; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="menu-dropdown">
+      <button class="menu-btn">Menu</button>
+      <div class="dropdown-content">
+        <a href="../index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="faq.html">FAQ</a>
+        <a href="contact.html">Contact</a>
+        <a href="tel:+15627269773">Call</a>
+        <a href="mailto:ernesto@nsdevcap.com">Email</a>
+      </div>
+    </div>
+    <div class="container">
+      <div class="logo"><a href="../index.html"><img src="../logo.png" alt="North Star Capital"></a></div>
+    </div>
+  </header>
+  <section class="page-header">
+    <div class="container"><h1>Frequently Asked Questions</h1></div>
+  </section>
+  <section class="faq-section">
+    <div class="container">
+      <div class="faq-category">
+        <h2>General Questions</h2>
+        <div class="faq-item"><div class="faq-question">What is a hard money loan?</div><div class="faq-answer"><p>A hard money loan is a short-term, asset-based loan secured by real estate. Unlike traditional bank loans, hard money lenders focus primarily on the property's value and the deal's viability rather than the borrower's credit score or income documentation.</p></div></div>
+        <div class="faq-item"><div class="faq-question">How is North Star Capital different from banks?</div><div class="faq-answer"><p>We're faster, more flexible, and asset-based. Banks can take 30-60 days and often require extensive documentation. We can close in 5-10 business days and focus on the deal fundamentals—property value, exit strategy, and borrower experience.</p></div></div>
+        <div class="faq-item"><div class="faq-question">What states do you lend in?</div><div class="faq-answer"><p>We lend nationwide with particular strength in the Southwest (AZ, NM, NV, TX), Midwest (OH, MI, IN, IL), Southeast (GA, TN, Carolinas, FL), and Pacific Northwest (WA, OR).</p></div></div>
+      </div>
+      <div class="faq-category">
+        <h2>Loan Programs</h2>
+        <div class="faq-item"><div class="faq-question">What loan programs do you offer?</div><div class="faq-answer"><ul><li><strong>Fix & Flip:</strong> Short-term financing for acquisitions and rehabs (6-12 months)</li><li><strong>BRRRR / Rental:</strong> Bridge loans for rental property acquisitions (6-24 months)</li><li><strong>Construction / Ground-Up:</strong> Financing for new builds and major rehabs</li></ul></div></div>
+        <div class="faq-item"><div class="faq-question">What are your typical LTV/LTC ratios?</div><div class="faq-answer"><p>It varies by program:</p><ul><li>Fix & Flip: Up to 75-90% LTV</li><li>Rental: Up to 75% LTV</li><li>Construction: Up to 80-90% LTC (land up to 50%)</li></ul></div></div>
+        <div class="faq-item"><div class="faq-question">What loan sizes do you do?</div><div class="faq-answer"><p>Our typical loan ranges: $75K - $5M for fix and flip, $100K - $5M for rental, and $200K - $10M for construction. Larger deals considered on a case-by-case basis.</p></div></div>
+      </div>
+      <div class="faq-category">
+        <h2>Rates & Terms</h2>
+        <div class="faq-item"><div class="faq-question">What are your interest rates?</div><div class="faq-answer"><p>Rates start at:</p><ul><li>Fix & Flip: 9-12%</li><li>Rental/BRRRR: 8-11%</li><li>Construction: 10-13%</li></ul><p>Final rates depend on deal specifics, LTV, borrower experience, and property condition.</p></div></div>
+        <div class="faq-item"><div class="faq-question">What are your points/fees?</div><div class="faq-answer"><p>Typical points range from 2-3 points on the loan amount. Additional standard closing costs include title, appraisal, and legal fees. No hidden administrative fees.</p></div></div>
+        <div class="faq-item"><div class="faq-question">What are your loan terms?</div><div class="faq-answer"><p>Terms vary by program: 6-12 months for fix and flip, 6-24 months for rental, and 6-18 months for construction. Extensions may be available with additional fees.</p></div></div>
+      </div>
+      <div class="faq-category">
+        <h2>The Process</h2>
+        <div class="faq-item"><div class="faq-question">How fast can I get funded?</div><div class="faq-answer"><p>Submit your scenario → Get indicative terms within 24 hours → Underwrite and close in 5-10 business days. Timing depends on how quickly you provide required documentation.</p></div></div>
+        <div class="faq-item"><div class="faq-question">What do I need to apply?</div><div class="faq-answer"><ul><li>Completed scenario form</li><li>Property address and details</li><li>Purchase contract (if under contract)</li><li>Scope of work/rehab budget</li><li>ARV estimates/comps</li><li>Entity documents (if applicable)</li><li>Photo documentation (for existing properties)</li></ul></div></div>
+        <div class="faq-item"><div class="faq-question">Do you require an appraisal?</div><div class="faq-answer"><p>Yes, we typically require an appraisal for most transactions. For smaller deals or repeat borrowers, we may accept BPOs (Broker Price Opinions) or interior-only appraisals to reduce costs.</p></div></div>
+      </div>
+      <div class="faq-category">
+        <h2>Borrower Requirements</h2>
+        <div class="faq-item"><div class="faq-question">What's the minimum credit score?</div><div class="faq-answer"><p>We don't have a strict minimum credit score. We focus on the deal—property value, LTV, and exit strategy. However, better credit may result in better terms.</p></div></div>
+        <div class="faq-item"><div class="faq-question">Do I need prior experience?</div><div class="faq-answer"><p>We prefer borrowers with at least 2-3 completed deals, but we review each deal individually. Strong deals from newer investors may be considered with additional documentation or a more experienced partner.</p></div></div>
+        <div class="faq-item"><div class="faq-question">Can I use an LLC or entity?</div><div class="faq-answer"><p>Yes, we work with LLCs, corporations, and other entities. You'll need to provide formation documents and have authorized signatories ready for closing.</p></div></div>
+      </div>
+      <div class="cta-box">
+        <h3>Still have questions?</h3>
+        <p>Our team is here to help. Call or email us for a quick consultation.</p>
+        <a href="tel:+15627269773">Call Now</a>
+        <a href="mailto:ernesto@nsdevcap.com" style="background: #2d5a7b; margin-left: 10px;">Email Us</a>
+      </div>
+    </div>
+  </section>
+  <footer>
+    <div class="container"><p>2026 North Star Capital. All rights reserved.</p></div>
+  </footer>
+  <script>
+    document.querySelectorAll('.faq-question').forEach(q => {
+      q.addEventListener('click', () => {
+        const item = q.parentElement;
+        item.classList.toggle('open');
+      });
+    });
+  </script>
+</body>
+</html>
