@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Client Login - North Star Capital</title>
+  <link rel="icon" type="image/png" href="favicon.png">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+      background: linear-gradient(135deg, #1a3a52 0%, #2d5a7b 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    .login-container {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+    }
+    .login-box {
+      background: white;
+      padding: 50px;
+      border-radius: 16px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+      width: 100%;
+      max-width: 450px;
+      text-align: center;
+    }
+    .logo {
+      margin-bottom: 30px;
+    }
+    .logo img {
+      height: 80px;
+      width: auto;
+    }
+    h1 {
+      color: #1a3a52;
+      font-size: 2rem;
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+    .subtitle {
+      color: #666;
+      margin-bottom: 30px;
+      font-size: 1rem;
+    }
+    .form-group {
+      margin-bottom: 25px;
+      text-align: left;
+    }
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+      color: #2d5a7b;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    input {
+      width: 100%;
+      padding: 14px 16px;
+      border: 2px solid #e0e0e0;
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+    input:focus {
+      outline: none;
+      border-color: #c9a961;
+      box-shadow: 0 0 0 4px rgba(201,169,97,0.15);
+    }
+    .login-btn {
+      width: 100%;
+      padding: 16px;
+      background: linear-gradient(135deg, #c9a961 0%, #b89750 100%);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      cursor: pointer;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: all 0.3s ease;
+      margin-top: 10px;
+    }
+    .login-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(201,169,97,0.4);
+    }
+    .forgot-password {
+      display: block;
+      margin-top: 20px;
+      color: #2d5a7b;
+      text-decoration: none;
+      font-size: 0.95rem;
+    }
+    .forgot-password:hover {
+      text-decoration: underline;
+    }
+    .back-home {
+      display: inline-block;
+      margin-top: 25px;
+      color: #666;
+      text-decoration: none;
+      font-size: 0.95rem;
+    }
+    .back-home:hover {
+      color: #1a3a52;
+    }
+    .security-note {
+      margin-top: 30px;
+      padding-top: 20px;
+      border-top: 1px solid #e0e0e0;
+      font-size: 0.85rem;
+      color: #999;
+    }
+    .security-note svg {
+      width: 16px;
+      height: 16px;
+      vertical-align: middle;
+      margin-right: 6px;
+    }
+    @media (max-width: 480px) {
+      .login-box {
+        padding: 30px 25px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <div class="login-box">
+      <div class="logo">
+        <a href="index.html">
+          <img src="logo.png" alt="North Star Capital">
+        </a>
+      </div>
+      
+      <h1>Client Login</h1>
+      <p class="subtitle">Access your investor portal</p>
+      
+      <!-- Replace ACTION URL with your Flask app endpoint -->
+      <form action="https://your-flask-app.com/login" method="POST">
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" required placeholder="investor@example.com">
+        </div>
+        
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" required placeholder="Enter your password">
+        </div>
+        
+        <button type="submit" class="login-btn">Sign In</button>
+      </form>
+      
+      <a href="#" class="forgot-password">Forgot your password?</a>
+      
+      <a href="index.html" class="back-home">← Back to homepage</a>
+      
+      <div class="security-note">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+        </svg>
+        Secure 256-bit encrypted connection
+      </div>
+    </div>
+  </div>
+</body>
+</html>
