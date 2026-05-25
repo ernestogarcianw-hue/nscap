@@ -81,11 +81,13 @@
         </div>
 
         <div class="map-legend">
-          <div class="legend-item"><div class="legend-swatch" style="background:#c9a961;"></div> Primary Lending Markets</div>
-          <div class="legend-item"><div class="legend-swatch" style="background:#3d6080;"></div> All Other States (we still lend here)</div>
+          <div class="legend-item"><div class="legend-swatch" style="background:#c9a961;"></div> ★ Major Markets</div>
+          <div class="legend-item"><div class="legend-swatch" style="background:#d4b87a;"></div> Available Statewide</div>
+          <div class="legend-item"><div class="legend-swatch" style="background:#3d6080;"></div> Not Currently Available</div>
         </div>
+        <p style="font-size:0.85rem; color:#888; text-align:center; margin-top:4px;">★ Major markets = strong metro/suburban focus. Rural deals evaluated case-by-case.</p>
 
-        <p style="margin-top:16px; text-align:center;">Don't see your state highlighted? <a href="contact.html" style="color:#c9a961; font-weight:600;">Contact us</a> — we evaluate deals nationwide.</p>
+        <p style="margin-top:12px; text-align:center;">Questions about your market? <a href="contact.html" style="color:#c9a961; font-weight:600;">Contact us</a> — we evaluate every deal individually.</p>
 
         <div id="map-tooltip"></div>
 
@@ -114,8 +116,11 @@
   hamburger.addEventListener('click', (e) => { e.stopPropagation(); nav.classList.toggle('open'); });
   document.addEventListener('click', (e) => { if (!e.target.closest('header')) nav.classList.remove('open'); });
 
-  // FIPS codes for primary lending states
-  const lendingFIPS = new Set([
+  // States where we do NOT lend: ND, SD, AK, VT
+  const noLendFIPS = new Set(['38','46','02','50']);
+
+  // Primary / major metro markets (asterisk highlighted)
+  const primaryFIPS = new Set([
     '53','41',           // Pacific Northwest: WA, OR
     '04','35','32','48', // Southwest: AZ, NM, NV, TX
     '39','26','18','17', // Midwest: OH, MI, IN, IL
@@ -153,23 +158,45 @@
         .join('path')
         .attr('class', d => {
           const fips = String(d.id).padStart(2, '0');
-          return lendingFIPS.has(fips) ? 'state active' : 'state';
+          return noLendFIPS.has(fips) ? 'state' : 'state active';
         })
         .attr('d', path)
         .attr('fill', d => {
           const fips = String(d.id).padStart(2, '0');
-          return lendingFIPS.has(fips) ? '#c9a961' : '#3d6080';
+          if (noLendFIPS.has(fips)) return '#3d6080';
+          if (primaryFIPS.has(fips)) return '#c9a961';
+          return '#d4b87a'; // available, not primary
         })
         .on('mousemove', function(event, d) {
           const fips = String(d.id).padStart(2, '0');
           const name = stateNames[fips] || '';
-          const label = lendingFIPS.has(fips) ? `${name} ✓ Primary Market` : name;
+          let label;
+          if (noLendFIPS.has(fips)) label = `${name} — Not currently available`;
+          else if (primaryFIPS.has(fips)) label = `${name} ★ Major Market`;
+          else label = `${name} ✓ Available`;
           tooltip.textContent = label;
           tooltip.style.display = 'block';
           tooltip.style.left = (event.clientX + 14) + 'px';
           tooltip.style.top = (event.clientY - 32) + 'px';
         })
         .on('mouseleave', () => { tooltip.style.display = 'none'; });
+
+      // Asterisk labels on primary market states
+      svg.selectAll('.state-label')
+        .data(states.features.filter(d => primaryFIPS.has(String(d.id).padStart(2,'0'))))
+        .join('text')
+        .attr('class', 'state-label')
+        .attr('transform', d => {
+          const c = path.centroid(d);
+          return c && !isNaN(c[0]) ? `translate(${c})` : 'translate(-999,-999)';
+        })
+        .attr('text-anchor', 'middle')
+        .attr('dy', '0.35em')
+        .attr('font-size', '10')
+        .attr('font-weight', 'bold')
+        .attr('fill', '#1a3a52')
+        .attr('pointer-events', 'none')
+        .text('★');
 
       // State borders
       svg.append('path')
