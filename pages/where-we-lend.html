@@ -12,17 +12,29 @@
   <link rel="stylesheet" href="../styles.css">
   <style>
     section { padding: 60px 0; }
-    .page-content { max-width: 900px; margin: 0 auto; }
+    .page-content { max-width: 960px; margin: 0 auto; }
     .page-content h1 { color: #1a3a52; font-size: 2.4rem; margin-bottom: 0.5rem; }
     .page-content .subtitle { color: #c9a961; font-size: 1.1rem; font-weight: 600; margin-bottom: 2rem; }
     .page-content p { color: #555; margin-bottom: 1rem; line-height: 1.7; }
-    .regions-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px; margin: 40px 0; }
-    .region-card { background: #f8f9fa; border-top: 4px solid #c9a961; border-radius: 8px; padding: 28px 24px; }
-    .region-card h3 { color: #1a3a52; font-size: 1.2rem; margin-bottom: 12px; margin-top: 0; }
-    .region-card ul { list-style: none; padding: 0; margin: 0; }
-    .region-card ul li { color: #555; padding: 5px 0; border-bottom: 1px solid #e8e8e8; font-size: 0.95rem; }
-    .region-card ul li:last-child { border-bottom: none; }
-    .region-card ul li::before { content: "✓ "; color: #c9a961; font-weight: bold; }
+
+    /* Map */
+    #map-wrap { background: #1a3a52; border-radius: 12px; padding: 32px 16px 20px; margin: 32px 0 24px; }
+    #map-wrap svg { display: block; width: 100%; height: auto; }
+    .state { transition: fill 0.15s; cursor: default; }
+    .state.active { cursor: pointer; }
+    .state.active:hover { fill: #e0bd76; }
+    #map-tooltip {
+      position: fixed; pointer-events: none; display: none;
+      background: #1a3a52; color: white; padding: 6px 14px;
+      border-radius: 20px; font-size: 0.85rem; font-weight: 600;
+      border: 1px solid #c9a961; white-space: nowrap; z-index: 999;
+    }
+
+    /* Legend */
+    .map-legend { display: flex; gap: 24px; flex-wrap: wrap; justify-content: center; margin-bottom: 8px; }
+    .legend-item { display: flex; align-items: center; gap: 8px; font-size: 0.9rem; color: #555; }
+    .legend-swatch { width: 18px; height: 18px; border-radius: 3px; flex-shrink: 0; }
+
     .cta-section { background: #1a3a52; color: white; text-align: center; padding: 60px 20px; margin-top: 40px; border-radius: 12px; }
     .cta-section h2 { color: white; margin-bottom: 1rem; font-size: 2rem; }
     .cta-section p { color: rgba(255,255,255,0.8); max-width: 500px; margin: 0 auto 2rem; }
@@ -64,45 +76,20 @@
     <div class="container">
       <div class="page-content">
         <h2 style="color:#1a3a52; font-size:1.8rem; margin-bottom:0.5rem;">Our Primary Markets</h2>
-        <p>We lend in all 50 states with particularly strong experience and fast turnaround in the following regions:</p>
-        <div class="regions-grid">
-          <div class="region-card">
-            <h3>☀️ Southwest</h3>
-            <ul>
-              <li>Arizona</li>
-              <li>New Mexico</li>
-              <li>Nevada</li>
-              <li>Texas</li>
-            </ul>
-          </div>
-          <div class="region-card">
-            <h3>🌾 Midwest</h3>
-            <ul>
-              <li>Ohio</li>
-              <li>Michigan</li>
-              <li>Indiana</li>
-              <li>Illinois</li>
-            </ul>
-          </div>
-          <div class="region-card">
-            <h3>🌴 Southeast</h3>
-            <ul>
-              <li>Georgia</li>
-              <li>Tennessee</li>
-              <li>North Carolina</li>
-              <li>South Carolina</li>
-              <li>Florida</li>
-            </ul>
-          </div>
-          <div class="region-card">
-            <h3>🌲 Pacific Northwest</h3>
-            <ul>
-              <li>Washington</li>
-              <li>Oregon</li>
-            </ul>
-          </div>
+        <p>We lend in all 50 states with particularly strong experience and fast turnaround in the highlighted regions below. Hover over a state to see its name.</p>
+
+        <div id="map-wrap">
+          <svg id="us-map" viewBox="0 0 960 600" xmlns="http://www.w3.org/2000/svg"></svg>
         </div>
-        <p style="margin-top:10px;">Don't see your state? <a href="contact.html" style="color:#c9a961; font-weight:600;">Contact us</a> — we evaluate deals nationwide.</p>
+
+        <div class="map-legend">
+          <div class="legend-item"><div class="legend-swatch" style="background:#c9a961;"></div> Primary Lending Markets</div>
+          <div class="legend-item"><div class="legend-swatch" style="background:#3d6080;"></div> All Other States (we still lend here)</div>
+        </div>
+
+        <p style="margin-top:16px; text-align:center;">Don't see your state highlighted? <a href="contact.html" style="color:#c9a961; font-weight:600;">Contact us</a> — we evaluate deals nationwide.</p>
+
+        <div id="map-tooltip"></div>
 
         <div class="cta-section">
           <h2>Ready to Fund Your Next Deal?</h2>
@@ -135,10 +122,86 @@
   </div>
 </footer>
 
+<script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/topojson-client@3/dist/topojson-client.min.js"></script>
 <script>
   const hamburger = document.getElementById('hamburger');
   const nav = document.getElementById('main-nav');
   hamburger.addEventListener('click', () => nav.classList.toggle('open'));
+
+  // FIPS codes for primary lending states
+  const lendingFIPS = new Set([
+    '53','41',           // Pacific Northwest: WA, OR
+    '04','35','32','48', // Southwest: AZ, NM, NV, TX
+    '39','26','18','17', // Midwest: OH, MI, IN, IL
+    '13','47','37','45','12' // Southeast: GA, TN, NC, SC, FL
+  ]);
+
+  const stateNames = {
+    '01':'Alabama','02':'Alaska','04':'Arizona','05':'Arkansas','06':'California',
+    '08':'Colorado','09':'Connecticut','10':'Delaware','11':'Washington D.C.','12':'Florida',
+    '13':'Georgia','15':'Hawaii','16':'Idaho','17':'Illinois','18':'Indiana',
+    '19':'Iowa','20':'Kansas','21':'Kentucky','22':'Louisiana','23':'Maine',
+    '24':'Maryland','25':'Massachusetts','26':'Michigan','27':'Minnesota','28':'Mississippi',
+    '29':'Missouri','30':'Montana','31':'Nebraska','32':'Nevada','33':'New Hampshire',
+    '34':'New Jersey','35':'New Mexico','36':'New York','37':'North Carolina','38':'North Dakota',
+    '39':'Ohio','40':'Oklahoma','41':'Oregon','42':'Pennsylvania','44':'Rhode Island',
+    '45':'South Carolina','46':'South Dakota','47':'Tennessee','48':'Texas','49':'Utah',
+    '50':'Vermont','51':'Virginia','53':'Washington','54':'West Virginia','55':'Wisconsin','56':'Wyoming'
+  };
+
+  const width = 960, height = 600;
+  const svg = d3.select('#us-map');
+  const projection = d3.geoAlbersUsa().scale(1280).translate([width / 2, height / 2]);
+  const path = d3.geoPath().projection(projection);
+  const tooltip = document.getElementById('map-tooltip');
+
+  fetch('https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json')
+    .then(r => r.json())
+    .then(us => {
+      const states = topojson.feature(us, us.objects.states);
+      const mesh = topojson.mesh(us, us.objects.states, (a, b) => a !== b);
+
+      // State fills
+      svg.selectAll('.state')
+        .data(states.features)
+        .join('path')
+        .attr('class', d => {
+          const fips = String(d.id).padStart(2, '0');
+          return lendingFIPS.has(fips) ? 'state active' : 'state';
+        })
+        .attr('d', path)
+        .attr('fill', d => {
+          const fips = String(d.id).padStart(2, '0');
+          return lendingFIPS.has(fips) ? '#c9a961' : '#3d6080';
+        })
+        .on('mousemove', function(event, d) {
+          const fips = String(d.id).padStart(2, '0');
+          const name = stateNames[fips] || '';
+          const label = lendingFIPS.has(fips) ? `${name} ✓ Primary Market` : name;
+          tooltip.textContent = label;
+          tooltip.style.display = 'block';
+          tooltip.style.left = (event.clientX + 14) + 'px';
+          tooltip.style.top = (event.clientY - 32) + 'px';
+        })
+        .on('mouseleave', () => { tooltip.style.display = 'none'; });
+
+      // State borders
+      svg.append('path')
+        .datum(mesh)
+        .attr('fill', 'none')
+        .attr('stroke', 'rgba(255,255,255,0.35)')
+        .attr('stroke-width', '0.7')
+        .attr('d', path);
+
+      // Outer border
+      svg.append('path')
+        .datum(topojson.merge(us, us.objects.states.geometries))
+        .attr('fill', 'none')
+        .attr('stroke', 'rgba(255,255,255,0.6)')
+        .attr('stroke-width', '1.5')
+        .attr('d', path);
+    });
 </script>
 </body>
 </html>
