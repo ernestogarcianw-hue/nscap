@@ -84,14 +84,15 @@ header .container {
 .main-nav .nav-cta-btn {
   background: #c9a961;
   color: white !important;
-  border-radius: 6px;
-  padding: 10px 20px;
+  border-radius: 50px;
+  padding: 10px 28px;
   font-weight: 700;
-  margin-left: 4px;
-  transition: background 0.2s;
+  margin-left: 12px;
+  letter-spacing: 0.3px;
+  transition: background 0.2s, transform 0.15s;
 }
 
-.main-nav .nav-cta-btn:hover { background: #b89750; }
+.main-nav .nav-cta-btn:hover { background: #b89750; transform: translateY(-1px); }
 
 /* ----- Mobile hamburger (hidden on desktop) ----- */
 .hamburger-btn {
