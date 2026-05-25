@@ -51,24 +51,21 @@
         <img src="../logo.png" alt="North Star Capital">
       </a>
     </div>
-    <nav class="main-nav" id="main-nav">
-      <a href="../pages/loan-programs.html">Loan Programs</a>
+    <nav class="main-nav" id="mainNav">
+      <a href="../index.html#loan-programs">Loan Programs</a>
       <a href="where-we-lend.html" class="active">Where We Lend</a>
       <a href="about.html">About</a>
-      <a href="../index.html#scenario-form" class="nav-cta">Submit a Scenario →</a>
+      <a href="../index.html#scenario-form" class="nav-cta-btn">Submit a Scenario →</a>
     </nav>
-    <button class="hamburger" id="hamburger" aria-label="Toggle navigation">&#9776;</button>
+    <button class="hamburger-btn" id="hamburgerBtn" aria-label="Toggle navigation">☰</button>
   </div>
 </header>
 
 <main>
-  <section style="background: #f8f9fa; padding: 60px 0;">
+  <section class="page-header">
     <div class="container">
-      <div class="page-content">
-        <h1>Where We Lend</h1>
-        <p class="subtitle">Nationwide hard money lending with regional expertise</p>
-        <p>North Star Capital provides fast, asset-based loans across the United States. We have deep experience in high-growth markets and can move quickly where others can't. Whether you're flipping in Phoenix or building in Atlanta, we're ready to fund.</p>
-      </div>
+      <h1>Where We Lend</h1>
+      <p>Nationwide hard money lending with regional expertise</p>
     </div>
   </section>
 
@@ -76,6 +73,7 @@
     <div class="container">
       <div class="page-content">
         <h2 style="color:#1a3a52; font-size:1.8rem; margin-bottom:0.5rem;">Our Primary Markets</h2>
+        <p>North Star Capital provides fast, asset-based loans across the United States. We have deep experience in high-growth markets and can move quickly where others can't. Whether you're flipping in Phoenix or building in Atlanta, we're ready to fund.</p>
         <p>We lend in all 50 states with particularly strong experience and fast turnaround in the highlighted regions below. Hover over a state to see its name.</p>
 
         <div id="map-wrap">
@@ -103,31 +101,18 @@
 
 <footer>
   <div class="container">
-    <div class="footer-content">
-      <div class="footer-brand">
-        <strong>North Star Capital</strong>
-        <p>Fast, common-sense hard money lending for experienced real estate investors.</p>
-      </div>
-      <div class="footer-links">
-        <a href="../pages/loan-programs.html">Loan Programs</a>
-        <a href="where-we-lend.html">Where We Lend</a>
-        <a href="about.html">About</a>
-        <a href="faq.html">FAQ</a>
-        <a href="contact.html">Contact</a>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>&copy; 2025 North Star Capital. All rights reserved. | Hard Money Lender | Not a bank.</p>
-    </div>
+    <p>&copy; 2026 North Star Capital. All rights reserved.</p>
+    <p>Licensed Hard Money Lender | Nationwide Lending</p>
   </div>
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/topojson-client@3/dist/topojson-client.min.js"></script>
 <script>
-  const hamburger = document.getElementById('hamburger');
-  const nav = document.getElementById('main-nav');
-  hamburger.addEventListener('click', () => nav.classList.toggle('open'));
+  const hamburger = document.getElementById('hamburgerBtn');
+  const nav = document.getElementById('mainNav');
+  hamburger.addEventListener('click', (e) => { e.stopPropagation(); nav.classList.toggle('open'); });
+  document.addEventListener('click', (e) => { if (!e.target.closest('header')) nav.classList.remove('open'); });
 
   // FIPS codes for primary lending states
   const lendingFIPS = new Set([
