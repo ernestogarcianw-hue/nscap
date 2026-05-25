@@ -99,24 +99,17 @@
 </head>
 <body>
   <header>
-    <div class="menu-dropdown" id="mainMenu">
-      <button class="menu-btn" aria-label="Toggle navigation" aria-expanded="false">☰ Menu</button>
-      <div class="dropdown-content">
-        <a href="index.html" class="active">Home</a>
-        <a href="pages/about.html">About</a>
-        <a href="pages/faq.html">FAQ</a>
-        <a href="pages/contact.html">Contact</a>
-        <a href="tel:+15627269773">📞 Call Us</a>
-        <a href="mailto:ernesto@nsdevcap.com">✉ Email Us</a>
-        <a href="login.html" class="nav-login">🔒 Client Login</a>
-      </div>
-    </div>
     <div class="container">
       <div class="logo">
-        <a href="index.html">
-          <img src="logo.png" alt="North Star Capital">
-        </a>
+        <a href="index.html"><img src="logo.png" alt="North Star Capital"></a>
       </div>
+      <nav class="main-nav" id="mainNav">
+        <a href="#loan-programs">Loan Programs</a>
+        <a href="pages/about.html#markets">Where We Lend</a>
+        <a href="pages/about.html">About</a>
+        <a href="#scenario-form" class="nav-cta-btn">Submit a Scenario →</a>
+      </nav>
+      <button class="hamburger-btn" id="hamburgerBtn" aria-label="Toggle navigation">☰</button>
     </div>
   </header>
   <section class="hero">
@@ -308,19 +301,10 @@
     </div>
   </footer>
   <script>
-    // Click-toggled navigation (works on mobile)
-    const menu = document.getElementById('mainMenu');
-    const btn = menu.querySelector('.menu-btn');
-    btn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      const isOpen = menu.classList.toggle('open');
-      btn.setAttribute('aria-expanded', isOpen);
-    });
-    document.addEventListener('click', () => {
-      menu.classList.remove('open');
-      btn.setAttribute('aria-expanded', 'false');
-    });
-    menu.querySelector('.dropdown-content').addEventListener('click', (e) => e.stopPropagation());
+    const hamburger = document.getElementById('hamburgerBtn');
+    const nav = document.getElementById('mainNav');
+    hamburger.addEventListener('click', (e) => { e.stopPropagation(); nav.classList.toggle('open'); });
+    document.addEventListener('click', (e) => { if (!e.target.closest('header')) nav.classList.remove('open'); });
   </script>
 </body>
 </html>

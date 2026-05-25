@@ -36,20 +36,15 @@
 </head>
 <body>
   <header>
-    <div class="menu-dropdown" id="mainMenu">
-      <button class="menu-btn" aria-label="Toggle navigation" aria-expanded="false">☰ Menu</button>
-      <div class="dropdown-content">
-        <a href="../index.html">Home</a>
-        <a href="about.html" class="active">About</a>
-        <a href="faq.html">FAQ</a>
-        <a href="contact.html">Contact</a>
-        <a href="tel:+15627269773">📞 Call Us</a>
-        <a href="mailto:ernesto@nsdevcap.com">✉ Email Us</a>
-        <a href="../login.html" class="nav-login">🔒 Client Login</a>
-      </div>
-    </div>
     <div class="container">
       <div class="logo"><a href="../index.html"><img src="../logo.png" alt="North Star Capital"></a></div>
+      <nav class="main-nav" id="mainNav">
+        <a href="../index.html#loan-programs">Loan Programs</a>
+        <a href="about.html#markets">Where We Lend</a>
+        <a href="about.html" class="active">About</a>
+        <a href="../index.html#scenario-form" class="nav-cta-btn">Submit a Scenario →</a>
+      </nav>
+      <button class="hamburger-btn" id="hamburgerBtn" aria-label="Toggle navigation">☰</button>
     </div>
   </header>
   <section class="page-header">
@@ -86,7 +81,7 @@
           <div class="team-member"><h3>Marcus Johnson</h3><div class="role">Head of Underwriting</div><p>10+ years in real estate underwriting.</p></div>
           <div class="team-member"><h3>Lisa Chen</h3><div class="role">VP of Operations</div><p>Manages closing process and borrower experience.</p></div>
         </div>
-        <h2>Our Markets</h2>
+        <h2 id="markets">Our Markets</h2>
         <p>We lend nationwide with strength in: Southwest (AZ, NM, NV, TX), Midwest (OH, MI, IN, IL), Southeast (GA, TN, Carolinas, FL), and Pacific Northwest (WA, OR).</p>
         <p>We avoid highly speculative land plays and focus on properties with clear comps and realistic valuations.</p>
       </div>
@@ -99,18 +94,10 @@
     </div>
   </footer>
   <script>
-    const menu = document.getElementById('mainMenu');
-    const btn = menu.querySelector('.menu-btn');
-    btn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      const isOpen = menu.classList.toggle('open');
-      btn.setAttribute('aria-expanded', isOpen);
-    });
-    document.addEventListener('click', () => {
-      menu.classList.remove('open');
-      btn.setAttribute('aria-expanded', 'false');
-    });
-    menu.querySelector('.dropdown-content').addEventListener('click', (e) => e.stopPropagation());
+    const hamburger = document.getElementById('hamburgerBtn');
+    const nav = document.getElementById('mainNav');
+    hamburger.addEventListener('click', (e) => { e.stopPropagation(); nav.classList.toggle('open'); });
+    document.addEventListener('click', (e) => { if (!e.target.closest('header')) nav.classList.remove('open'); });
   </script>
 </body>
 </html>
