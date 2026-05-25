@@ -33,18 +33,46 @@ header .container {
   display: flex;
   align-items: center;
   padding: 0 30px;
-  height: 90px;
+  height: 100px;
   gap: 16px;
   position: relative;
 }
 
-.logo { display: flex; align-items: center; flex-shrink: 0; }
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-shrink: 0;
+  text-decoration: none;
+}
 
 .logo img {
-  height: 70px;
-  width: auto;
+  height: 74px;
+  width: 74px;
   object-fit: contain;
   display: block;
+}
+
+.logo-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.15;
+}
+
+.logo-text .logo-name {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #1a3a52;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.logo-text .logo-sub {
+  font-size: 0.72rem;
+  color: #c9a961;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  font-weight: 600;
 }
 
 /* ----- Horizontal Nav ----- */
