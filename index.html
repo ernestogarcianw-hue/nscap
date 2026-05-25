@@ -6,90 +6,109 @@
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
+  <meta name="description" content="North Star Capital provides fast, nationwide hard money lending for fix & flippers, landlords, and developers. Close in as little as 5-10 business days.">
+  <meta property="og:title" content="North Star Capital — Nationwide Hard Money Lending">
+  <meta property="og:description" content="Fast, asset-based loans for flips, rentals, and ground-up projects across the U.S. Close in as little as 5-10 business days.">
+  <meta property="og:type" content="website">
   <title>North Star Capital - Nationwide Hard Money Lending</title>
   <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="stylesheet" href="styles.css">
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif; line-height: 1.6; color: #333; }
-    .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-    header { background: white; position: sticky; top: 0; z-index: 100; }
-    header .container { display: flex; justify-content: center; align-items: flex-end; padding: 0 20px; width: 100%; position: relative; }
-    .logo { display: flex; align-items: flex-end; }
-    .logo img { height: 250px; width: auto; object-fit: contain; display: block; }
-    .menu-dropdown { position: absolute; left: 20px; bottom: 0; transform: none; margin: 0; }
-    .menu-dropdown { position: absolute; left: 20px; top: 50%; transform: translateY(-50%); z-index: 101; }
-    .menu-btn { background: #2d5a7b; color: white; border: none; padding: 10px 15px; cursor: pointer; border-radius: 4px; font-size: 14px; }
-    .dropdown-content { display: none; position: absolute; top: 100%; left: 0; background: white; box-shadow: 0 4px 8px rgba(0,0,0,0.2); border-radius: 4px; min-width: 150px; margin-top: 5px; }
-    .menu-dropdown:hover .dropdown-content { display: block; }
-    .dropdown-content a { display: block; padding: 12px 20px; color: #1a3a52; text-decoration: none; }
-    .dropdown-content a:hover { background: #f0f0f0; }
+    /* ---- Hero ---- */
     .hero { background: linear-gradient(135deg, #1a3a52 0%, #2d5a7b 100%); color: white; padding: 100px 0 80px; text-align: center; }
     .hero h1 { font-size: 3rem; margin-bottom: 1rem; line-height: 1.2; }
     .hero p { font-size: 1.3rem; margin-bottom: 2rem; opacity: 0.9; }
-    .cta-button { display: inline-block; background: #c9a961; color: white; padding: 15px 40px; text-decoration: none; border-radius: 5px; font-weight: bold; font-size: 1.1rem; margin: 10px; }
-    .cta-button:hover { background: #b89750; }
-    .cta-secondary { background: transparent; border: 2px solid white; }
-    .cta-secondary:hover { background: rgba(255,255,255,0.1); }
+
+    /* ---- Sections ---- */
     section { padding: 60px 0; }
-    h2 { font-size: 2.5rem; margin-bottom: 3rem; text-align: center; color: white; }
+
+    /* Loan Programs section sits on white — use navy heading */
+    #loan-programs h2 { font-size: 2.5rem; margin-bottom: 3rem; text-align: center; color: #1a3a52; }
+
+    /* Dark sections get white headings */
+    #how-it-works h2,
+    #scenario-form h2 { font-size: 2.5rem; margin-bottom: 3rem; text-align: center; color: white; }
+
+    /* ---- Program Cards ---- */
     .programs { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; margin-bottom: 40px; }
-    .program-card { background: linear-gradient(135deg, #1a3a52 0%, #2d5a7b 100%); padding: 40px 30px; border-radius: 12px; box-shadow: 0 10px 30px rgba(26,58,82,0.2); border: 2px solid #e0e0e0; transition: transform 0.3s ease, box-shadow 0.3s ease; min-height: 450px; display: flex; flex-direction: column; position: relative; overflow: hidden; }
-    .program-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 180px; background-size: cover; background-position: center; z-index: 0; opacity: 0.9; }
+    .program-card {
+      background: linear-gradient(135deg, #1a3a52 0%, #2d5a7b 100%);
+      padding: 40px 30px;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(26,58,82,0.2);
+      border: 2px solid #e0e0e0;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+      min-height: 450px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+    }
+    .program-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 180px;
+      background-size: cover;
+      background-position: center;
+      z-index: 0;
+      opacity: 0.9;
+    }
     .program-card.fix-flip::before { background-image: url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=800&q=80'); }
-    .program-card.rental::before { background-image: url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&q=80'); }
-    .program-card.developer::before { background-image: url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80'); }
+    .program-card.rental::before   { background-image: url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&q=80'); }
+    .program-card.developer::before{ background-image: url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80'); }
     .program-card:hover { transform: translateY(-8px); box-shadow: 0 15px 40px rgba(26,58,82,0.3); border-color: #c9a961; }
-    .program-card h3 { color: #ffffff !important; font-size: 1.6rem !important; font-weight: 800 !important; text-shadow: 0 2px 8px rgba(0,0,0,0.5); }
-    .program-card p { color: #ffffff !important; font-size: 1.1rem !important; text-shadow: 0 1px 4px rgba(0,0,0,0.5); }
-    .program-card ul { color: #ffffff !important; }
-    .program-card li { color: #ffffff !important; border-color: rgba(255,255,255,0.3); }
-    .program-card li strong { color: #c9a961 !important; }
-    .program-card li span { color: #e0e0e0 !important; }
-    .program-card:hover { transform: translateY(-8px); box-shadow: 0 15px 40px rgba(26,58,82,0.15); }
-    .program-card h3 { font-size: 1.6rem; margin-bottom: 1rem; color: #1a3a52; font-weight: 700; position: relative; z-index: 1; }
-    .program-card p { margin-bottom: 1.5rem; color: #555; line-height: 1.6; font-size: 1.05rem; position: relative; z-index: 1; }
+    .program-card h3 { font-size: 1.6rem; font-weight: 800; color: #ffffff; text-shadow: 0 2px 8px rgba(0,0,0,0.5); margin-bottom: 1rem; position: relative; z-index: 1; }
+    .program-card p  { font-size: 1.05rem; color: #ffffff; text-shadow: 0 1px 4px rgba(0,0,0,0.5); margin-bottom: 1.5rem; line-height: 1.6; position: relative; z-index: 1; }
     .program-card ul { list-style: none; margin: 0; padding: 0; position: relative; z-index: 1; }
-    .program-card p { margin-bottom: 1.5rem; color: #555; line-height: 1.6; font-size: 1.05rem; }
-    .program-card ul { list-style: none; margin: 0; padding: 0; }
-    .program-card li { padding: 12px 0; border-bottom: 1px solid #f0f0f0; display: flex; justify-content: space-between; align-items: center; }
+    .program-card li { padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.3); display: flex; justify-content: space-between; align-items: center; color: #ffffff; }
     .program-card li:last-child { border-bottom: none; }
-    .program-card li strong { color: #2d5a7b; font-weight: 600; }
-    .program-card li span { color: #666; text-align: right; }
+    .program-card li strong { color: #c9a961; font-weight: 600; }
+    .program-card li span { color: #e0e0e0; text-align: right; }
+
+    /* ---- How It Works ---- */
     .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-bottom: 40px; }
     .step { text-align: center; padding: 30px 20px; background: rgba(255,255,255,0.1); border-radius: 8px; backdrop-filter: blur(10px); }
     .step-number { display: inline-block; width: 70px; height: 70px; background: #c9a961; color: #1a3a52; border-radius: 50%; line-height: 70px; font-size: 2rem; font-weight: bold; margin-bottom: 1rem; box-shadow: 0 4px 15px rgba(201,169,97,0.4); }
     .step h3 { font-size: 1.4rem; margin-bottom: 0.75rem; color: white; font-weight: 700; }
-    .step p { color: rgba(255,255,255,0.9); font-size: 1.05rem; line-height: 1.5; }
-    #scenario-form { background: linear-gradient(135deg, #1a3a52 0%, #2d5a7b 100%); padding: 80px 0; background-attachment: fixed; }
-    form { max-width: 1000px; margin: 0 auto; }
-    .form-section { background: #f8fafc; border-radius: 16px; padding: 40px; margin-bottom: 30px; box-shadow: 0 10px 40px rgba(0,0,0,0.15); border: none; }
-    .form-section h3 { color: #ffffff !important; font-size: 1.5rem !important; font-weight: 900 !important; margin-bottom: 25px; padding-bottom: 15px; border-bottom: 3px solid #ffffff; display: flex; align-items: center; gap: 12px; }
-    .form-section h3::before { content: ''; width: 4px; height: 28px; background: linear-gradient(135deg, #c9a961, #b89750); border-radius: 2px; display: block; }
+    .step p  { color: rgba(255,255,255,0.9); font-size: 1.05rem; line-height: 1.5; }
+
+    /* ---- Scenario Form ---- */
+    #scenario-form { background: linear-gradient(135deg, #1a3a52 0%, #2d5a7b 100%); padding: 80px 0; }
+    #scenario-form form { max-width: 1000px; margin: 0 auto; }
     .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; margin-bottom: 25px; }
     .form-group { margin-bottom: 25px; }
-    .form-group label { display: block; margin-bottom: 10px; font-weight: 900 !important; color: #ffffff !important; font-size: 0.95rem !important; letter-spacing: 0.6px; text-transform: uppercase; }
-    .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 16px 18px !important; border: 3px solid #ffffff !important; border-radius: 8px; font-size: 1.15rem !important; font-family: inherit; transition: all 0.3s ease; background: #1a3a52 !important; color: #ffffff !important; font-weight: 700 !important; }
-    .form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-color: #c9a961; box-shadow: 0 0 0 4px rgba(201,169,97,0.12); background: white; }
+    .form-group label { display: block; margin-bottom: 10px; font-weight: 700; color: #ffffff; font-size: 0.95rem; letter-spacing: 0.6px; text-transform: uppercase; }
+    .form-group input,
+    .form-group select,
+    .form-group textarea { width: 100%; padding: 16px 18px; border: 3px solid #ffffff; border-radius: 8px; font-size: 1.1rem; font-family: inherit; transition: all 0.3s ease; background: #1a3a52; color: #ffffff; font-weight: 600; }
+    .form-group select option { background: #1a3a52; color: #ffffff; }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus { outline: none; border-color: #c9a961; box-shadow: 0 0 0 4px rgba(201,169,97,0.2); background: #0f2535; }
     .form-group textarea { min-height: 140px; resize: vertical; }
-    .submit-section { text-align: center; margin-top: 40px; }
-    .submit-btn { background: linear-gradient(135deg, #c9a961 0%, #b89750 100%); color: white; padding: 18px 80px; border: none; border-radius: 50px; font-size: 1.1rem; font-weight: 700; cursor: pointer; text-transform: uppercase; letter-spacing: 1.5px; transition: all 0.3s ease; box-shadow: 0 10px 30px rgba(201,169,97,0.3); display: inline-block; }
-    .submit-btn:hover { transform: translateY(-4px); box-shadow: 0 15px 40px rgba(201,169,97,0.5); }
+    .submit-btn { background: linear-gradient(135deg, #c9a961 0%, #b89750 100%); color: white; padding: 18px 80px; border: none; border-radius: 50px; font-size: 1.1rem; font-weight: 700; cursor: pointer; text-transform: uppercase; letter-spacing: 1.5px; transition: all 0.3s ease; box-shadow: 0 10px 30px rgba(201,169,97,0.3); display: block; margin: 40px auto 0; }
+    .submit-btn:hover  { transform: translateY(-4px); box-shadow: 0 15px 40px rgba(201,169,97,0.5); }
     .submit-btn:active { transform: translateY(-2px); }
-    footer { background: #1a3a52; color: white; text-align: center; padding: 30px 0; }
-    @media (max-width: 768px) { .hero h1 { font-size: 2rem; } .form-row { grid-template-columns: 1fr; } }
+
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2rem; }
+      .form-row { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body>
   <header>
-    <div class="menu-dropdown">
-      <button class="menu-btn">Menu</button>
+    <div class="menu-dropdown" id="mainMenu">
+      <button class="menu-btn" aria-label="Toggle navigation" aria-expanded="false">☰ Menu</button>
       <div class="dropdown-content">
+        <a href="index.html" class="active">Home</a>
         <a href="pages/about.html">About</a>
         <a href="pages/faq.html">FAQ</a>
         <a href="pages/contact.html">Contact</a>
-        <a href="login.html" style="border-top: 1px solid #e0e0e0; margin: 10px 0; padding-top: 10px; color: #c9a961 !important; font-weight: 600;">🔒 Client Login</a>
-        <a href="tel:+15627269773">Call</a>
-        <a href="mailto:ernesto@nsdevcap.com">Email</a>
+        <a href="tel:+15627269773">📞 Call Us</a>
+        <a href="mailto:ernesto@nsdevcap.com">✉ Email Us</a>
+        <a href="login.html" class="nav-login">🔒 Client Login</a>
       </div>
     </div>
     <div class="container">
@@ -109,7 +128,7 @@
     </div>
   </section>
   <section id="loan-programs" class="container">
-    <h2>Loan Programs</h2>
+    <h2 style="color:#1a3a52;">Loan Programs</h2>
     <div class="programs">
       <div class="program-card fix-flip">
         <h3>Fix & Flip</h3>
@@ -180,21 +199,21 @@
         <div class="form-row">
           <div class="form-group">
             <label for="name">Name *</label>
-            <input type="text" id="name" name="name" required>
+            <input type="text" id="name" name="name" required autocomplete="name">
           </div>
           <div class="form-group">
             <label for="phone">Phone *</label>
-            <input type="tel" id="phone" name="phone" required>
+            <input type="tel" id="phone" name="phone" required autocomplete="tel" pattern="[\d\s\-\+\(\)]{7,}">
           </div>
         </div>
         <div class="form-row">
           <div class="form-group">
             <label for="email">Email *</label>
-            <input type="email" id="email" name="email" required>
+            <input type="email" id="email" name="email" required autocomplete="email">
           </div>
           <div class="form-group">
             <label for="entity">Entity Name</label>
-            <input type="text" id="entity" name="entity">
+            <input type="text" id="entity" name="entity" autocomplete="organization">
           </div>
         </div>
         <div class="form-group">
@@ -288,5 +307,20 @@
       <p>Licensed Hard Money Lender | Nationwide Lending</p>
     </div>
   </footer>
+  <script>
+    // Click-toggled navigation (works on mobile)
+    const menu = document.getElementById('mainMenu');
+    const btn = menu.querySelector('.menu-btn');
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isOpen = menu.classList.toggle('open');
+      btn.setAttribute('aria-expanded', isOpen);
+    });
+    document.addEventListener('click', () => {
+      menu.classList.remove('open');
+      btn.setAttribute('aria-expanded', 'false');
+    });
+    menu.querySelector('.dropdown-content').addEventListener('click', (e) => e.stopPropagation());
+  </script>
 </body>
-</html><!-- rebuild -->
+</html>

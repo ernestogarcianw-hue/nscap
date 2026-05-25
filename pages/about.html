@@ -3,27 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="About North Star Capital — fast, asset-based hard money lending founded by investors for investors. Nationwide lending for fix & flip, BRRRR, and construction.">
+  <meta property="og:title" content="About — North Star Capital">
+  <meta property="og:description" content="Fast, asset-based hard money lending for experienced real estate investors, landlords, and developers.">
+  <meta property="og:type" content="website">
   <title>About - North Star Capital</title>
   <link rel="icon" type="image/png" href="../favicon.png">
+  <link rel="stylesheet" href="../styles.css">
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif; line-height: 1.6; color: #333; }
-    .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-    header { background: white; color: white; padding: 0.25rem 0; position: sticky; top: 0; z-index: 100; }
-    header .container { display: flex; justify-content: center; align-items: center; position: relative; }
-    .logo img { height: 150px; object-fit: contain; }
-    .menu-dropdown { position: absolute; left: 20px; top: 50%; transform: translateY(-50%); z-index: 101; }
-    .menu-btn { background: #2d5a7b; color: white; border: none; padding: 10px 15px; cursor: pointer; border-radius: 4px; font-size: 14px; }
-    .dropdown-content { display: none; position: absolute; top: 100%; left: 0; background: white; box-shadow: 0 4px 8px rgba(0,0,0,0.2); border-radius: 4px; min-width: 150px; margin-top: 5px; }
-    .menu-dropdown:hover .dropdown-content { display: block; }
-    .dropdown-content a { display: block; padding: 12px 20px; color: #1a3a52; text-decoration: none; }
-    .dropdown-content a:hover { background: #f0f0f0; }
-    .nav-links { position: absolute; right: 20px; display: flex; gap: 15px; }
-    .nav-links a { color: #2d5a7b; text-decoration: none; font-weight: 500; padding: 8px 12px; border-radius: 4px; }
-    .nav-links a:hover { background: #f0f0f0; }
-    .page-header { background: linear-gradient(135deg, #1a3a52 0%, #2d5a7b 100%); color: white; padding: 60px 0; text-align: center; }
-    .page-header h1 { font-size: 2.5rem; margin-bottom: 1rem; }
-    .page-header p { font-size: 1.2rem; opacity: 0.9; max-width: 600px; margin: 0 auto; }
     section { padding: 60px 0; }
     .about-content { max-width: 900px; margin: 0 auto; }
     .about-content h2 { color: #1a3a52; font-size: 2rem; margin-bottom: 1rem; margin-top: 2rem; }
@@ -44,21 +31,21 @@
     .team-member p { color: #666; font-size: 0.9rem; }
     ul { margin: 15px 0 15px 35px; color: #555; }
     li { margin-bottom: 8px; }
-    footer { background: #1a3a52; color: white; text-align: center; padding: 30px 0; }
-    @media (max-width: 768px) { .page-header h1 { font-size: 2rem; } .nav-links { display: none; } }
+    @media (max-width: 768px) { .page-header h1 { font-size: 2rem; } }
   </style>
 </head>
 <body>
   <header>
-    <div class="menu-dropdown">
-      <button class="menu-btn">Menu</button>
+    <div class="menu-dropdown" id="mainMenu">
+      <button class="menu-btn" aria-label="Toggle navigation" aria-expanded="false">☰ Menu</button>
       <div class="dropdown-content">
         <a href="../index.html">Home</a>
-        <a href="about.html">About</a>
+        <a href="about.html" class="active">About</a>
         <a href="faq.html">FAQ</a>
         <a href="contact.html">Contact</a>
-        <a href="tel:+15627269773">Call</a>
-        <a href="mailto:ernesto@nsdevcap.com">Email</a>
+        <a href="tel:+15627269773">📞 Call Us</a>
+        <a href="mailto:ernesto@nsdevcap.com">✉ Email Us</a>
+        <a href="../login.html" class="nav-login">🔒 Client Login</a>
       </div>
     </div>
     <div class="container">
@@ -94,7 +81,7 @@
         </div>
         <h2>Our Team</h2>
         <div class="team-grid">
-          <div class="team-member"><h3>Ernesto Garcia</h3><div class="role">Founder & CEO</div><p>20+ years in real estate finance and investment.</p></div>
+          <div class="team-member"><h3>Ernesto Garcia</h3><div class="role">Founder &amp; CEO</div><p>20+ years in real estate finance and investment.</p></div>
           <div class="team-member"><h3>Sarah Mitchell</h3><div class="role">Chief Lending Officer</div><p>15 years in commercial lending and underwriting.</p></div>
           <div class="team-member"><h3>Marcus Johnson</h3><div class="role">Head of Underwriting</div><p>10+ years in real estate underwriting.</p></div>
           <div class="team-member"><h3>Lisa Chen</h3><div class="role">VP of Operations</div><p>Manages closing process and borrower experience.</p></div>
@@ -106,7 +93,24 @@
     </div>
   </section>
   <footer>
-    <div class="container"><p>2026 North Star Capital. All rights reserved.</p></div>
+    <div class="container">
+      <p>&copy; 2026 North Star Capital. All rights reserved.</p>
+      <p>Licensed Hard Money Lender | Nationwide Lending</p>
+    </div>
   </footer>
+  <script>
+    const menu = document.getElementById('mainMenu');
+    const btn = menu.querySelector('.menu-btn');
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isOpen = menu.classList.toggle('open');
+      btn.setAttribute('aria-expanded', isOpen);
+    });
+    document.addEventListener('click', () => {
+      menu.classList.remove('open');
+      btn.setAttribute('aria-expanded', 'false');
+    });
+    menu.querySelector('.dropdown-content').addEventListener('click', (e) => e.stopPropagation());
+  </script>
 </body>
 </html>
