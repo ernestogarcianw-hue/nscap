@@ -9,11 +9,5 @@
   "observability": {
     "enabled": true
   },
-  "upload_source_maps": true,
-  "analytics_engine_datasets": [
-    {
-      "binding": "ANALYTICS",
-      "dataset": "nscap_events"
-    }
-  ]
+  "upload_source_maps": true
 }

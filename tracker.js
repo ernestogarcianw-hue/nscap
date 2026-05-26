@@ -1,88 +1,55 @@
 /**
- * North Star Capital — Client Analytics Snippet
- * Included on every page. Tracks:
- *  - Page views
- *  - Button / CTA clicks
+ * North Star Capital — GA4 Custom Event Tracker
+ * Fires on top of the base GA4 snippet to capture:
+ *  - CTA / button clicks
  *  - Scenario form submissions
  *  - Time on page (sent on tab close / navigate away)
  */
 (function () {
-  var ENDPOINT = '/track';
   var startTime = Date.now();
 
-  function send(payload) {
-    var data = JSON.stringify(payload);
-    // Use sendBeacon for exit events so they fire reliably on unload
-    if (navigator.sendBeacon) {
-      var blob = new Blob([data], { type: 'application/json' });
-      navigator.sendBeacon(ENDPOINT, blob);
-    } else {
-      fetch(ENDPOINT, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: data,
-        keepalive: true,
-      }).catch(function () {});
-    }
+  function ga(eventName, params) {
+    if (typeof gtag === 'function') gtag('event', eventName, params);
   }
 
-  function getPage() {
-    return window.location.pathname || '/';
-  }
-
-  // 1. Page view
-  send({
-    event: 'pageview',
-    page: getPage(),
-    referrer: document.referrer || '',
-    label: document.title || '',
-    duration: 0,
-  });
-
-  // 2. CTA / button clicks — track any <a> or <button> with meaningful text
+  // 1. CTA / button / link clicks
   document.addEventListener('click', function (e) {
-    var el = e.target.closest('a, button, .cta-btn, .ideal-tag, [data-track]');
+    var el = e.target.closest('a.cta-btn, button, [data-track]');
     if (!el) return;
     var label = (el.getAttribute('data-track') || el.innerText || el.getAttribute('href') || '').trim().slice(0, 100);
     if (!label) return;
-    send({
-      event: 'click',
-      page: getPage(),
-      referrer: document.referrer || '',
-      label: label,
-      duration: 0,
+    ga('cta_click', {
+      event_category: 'engagement',
+      event_label: label,
+      page_path: window.location.pathname,
     });
   });
 
-  // 3. Form submissions — track the scenario form and any other form
+  // 2. Form submissions
   document.addEventListener('submit', function (e) {
     var form = e.target;
-    var label = form.id || form.getAttribute('name') || form.getAttribute('action') || 'form';
-    send({
-      event: 'form_submit',
-      page: getPage(),
-      referrer: document.referrer || '',
-      label: label,
-      duration: Math.round((Date.now() - startTime) / 1000),
+    var label = form.id || form.getAttribute('name') || 'form';
+    ga('form_submit', {
+      event_category: 'lead',
+      event_label: label,
+      page_path: window.location.pathname,
+      time_to_submit: Math.round((Date.now() - startTime) / 1000),
     });
   });
 
-  // 4. Time on page — fires when user leaves (tab close, navigate away)
+  // 3. Time on page — fires when user leaves
   function sendTimeOnPage() {
     var seconds = Math.round((Date.now() - startTime) / 1000);
-    if (seconds < 2) return; // ignore bounces under 2s
-    send({
-      event: 'time_on_page',
-      page: getPage(),
-      referrer: document.referrer || '',
-      label: '',
-      duration: seconds,
+    if (seconds < 2) return;
+    ga('time_on_page', {
+      event_category: 'engagement',
+      value: seconds,
+      page_path: window.location.pathname,
     });
   }
 
   document.addEventListener('visibilitychange', function () {
     if (document.visibilityState === 'hidden') sendTimeOnPage();
   });
-
   window.addEventListener('pagehide', sendTimeOnPage);
 })();
