@@ -63,6 +63,8 @@ header .container {
   right: 0;
   width: 100%;
   z-index: 200;
+  /* invisible top padding bridges the gap between trigger and panel */
+  padding-top: 0;
 }
 
 .nav-dropdown-menu-inner {
@@ -82,7 +84,7 @@ header .container {
   display: flex !important;
   flex-direction: column !important;
   border-radius: 12px !important;
-  overflow: hidden;
+  overflow: visible;
   border: 1px solid #eaeef3 !important;
   background: white !important;
   color: #1a3a52 !important;
@@ -107,6 +109,7 @@ header .container {
   background-position: center;
   position: relative;
   flex-shrink: 0;
+  border-radius: 12px 12px 0 0;
 }
 .mega-badge {
   position: absolute;
@@ -126,7 +129,6 @@ header .container {
 .mega-title span { color: #c9a961; }
 .mega-desc { font-size: 0.78rem; color: #777; line-height: 1.55; }
 
-.nav-dropdown:hover .nav-dropdown-menu { display: block; }
 
 /* Mobile: simple stacked links */
 @media (max-width: 860px) {

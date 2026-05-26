@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="DSCR & Rental Bridge Loans | North Star Capital — Private bridge financing for BRRRR investors, landlords, and buy-and-hold rental acquisitions. DSCR underwriting, no personal income verification.">
-  <meta property="og:title" content="DSCR & Rental Bridge Loans | North Star Capital">
-  <meta property="og:description" content="Bridge loans for rental acquisitions, BRRRR strategy, and portfolio holds. DSCR underwriting — the deal qualifies itself. Terms in 24 hours across 46 states.">
+  <meta name="description" content="DSCR Loans | North Star Capital — Private financing for BRRRR investors, landlords, and buy-and-hold rental acquisitions. DSCR underwriting, no personal income verification.">
+  <meta property="og:title" content="DSCR Loans | North Star Capital">
+  <meta property="og:description" content="DSCR loans for buy-and-hold investors, BRRRR strategy, and rental portfolio growth. The deal qualifies itself. Terms in 24 hours across 46 states.">
   <meta property="og:type" content="website">
-  <title>DSCR &amp; Rental Bridge Loans | North Star Capital</title>
+  <title>DSCR Loans | North Star Capital</title>
   <link rel="icon" type="image/png" href="../favicon.png">
   <link rel="stylesheet" href="../styles.css">
   <style>
@@ -119,8 +119,8 @@
               <span class="mega-badge">For Landlords</span>
             </div>
             <div class="mega-body">
-              <div class="mega-title"><span>DSCR</span> / Rental Bridge</div>
-              <div class="mega-desc">BRRRR, buy-and-hold, and stabilization bridge. Qualify on cash flow, not income.</div>
+              <div class="mega-title"><span>DSCR</span> Loans</div>
+              <div class="mega-desc">BRRRR, buy-and-hold, and rental portfolio growth. Qualify on cash flow, not income.</div>
             </div>
           </a>
           <a href="ground-up-construction.html">
@@ -147,9 +147,9 @@
 <!-- Hero -->
 <section class="program-hero">
   <div class="container">
-    <p class="tagline">DSCR &amp; Rental Bridge Loans</p>
+    <p class="tagline">DSCR Loans</p>
     <h1>Acquire, Stabilize, Hold.<br>Or Refinance and Repeat.</h1>
-    <p>Bridge financing for BRRRR investors, buy-and-hold landlords, and rental portfolio builders. DSCR underwriting means we qualify the property — not your W-2.</p>
+    <p>DSCR financing for BRRRR investors, buy-and-hold landlords, and rental portfolio builders. We qualify the property — not your W-2.</p>
   </div>
 </section>
 
@@ -159,7 +159,7 @@
   <section class="program-section">
     <div class="container">
       <h2>The Capital Bridge Between Deal and Portfolio.</h2>
-      <p>Rental property investors move differently than flippers. You're thinking about cash flow, equity build, and the long game. Our rental bridge loans are structured around that mindset — fast capital to acquire or stabilize a property, with a clear path to permanent financing.</p>
+      <p>Rental property investors move differently than flippers. You're thinking about cash flow, equity build, and the long game. Our DSCR loans are structured around that mindset — fast capital to acquire or stabilize a property, with a clear path to permanent financing.</p>
       <p>Whether you're executing the BRRRR strategy, building a single-family rental portfolio, or acquiring a small multi-family, we bridge the gap between your purchase and your long-term refi. We underwrite on the property's income potential and current value — not your tax returns or employment history.</p>
       <p>Vacant or tenanted, transitional or stabilized — if the numbers work on the asset, we can fund it.</p>
     </div>
@@ -261,6 +261,20 @@
   const nav = document.getElementById('mainNav');
   hamburger.addEventListener('click', (e) => { e.stopPropagation(); nav.classList.toggle('open'); });
   document.addEventListener('click', (e) => { if (!e.target.closest('header')) nav.classList.remove('open'); });
+
+  // Mega-menu hover — keep open when moving mouse between trigger and panel
+  (function() {
+    var dropdown = document.querySelector('.nav-dropdown');
+    var menu = document.querySelector('.nav-dropdown-menu');
+    if (!dropdown || !menu) return;
+    var closeTimer;
+    function openMenu() { clearTimeout(closeTimer); menu.style.display = 'block'; }
+    function scheduleClose() { closeTimer = setTimeout(function() { menu.style.display = ''; }, 120); }
+    dropdown.addEventListener('mouseenter', openMenu);
+    dropdown.addEventListener('mouseleave', scheduleClose);
+    menu.addEventListener('mouseenter', openMenu);
+    menu.addEventListener('mouseleave', scheduleClose);
+  })();
 </script>
 </body>
 </html>

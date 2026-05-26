@@ -63,8 +63,8 @@
                 <span class="mega-badge">For Landlords</span>
               </div>
               <div class="mega-body">
-                <div class="mega-title"><span>DSCR</span> / Rental Bridge</div>
-                <div class="mega-desc">BRRRR, buy-and-hold, and stabilization bridge. Qualify on cash flow, not income.</div>
+                <div class="mega-title"><span>DSCR</span> Loans</div>
+                <div class="mega-desc">BRRRR, buy-and-hold, and rental portfolio growth. Qualify on cash flow, not income.</div>
               </div>
             </a>
             <a href="ground-up-construction.html">
@@ -146,6 +146,20 @@
     const nav = document.getElementById('mainNav');
     hamburger.addEventListener('click', (e) => { e.stopPropagation(); nav.classList.toggle('open'); });
     document.addEventListener('click', (e) => { if (!e.target.closest('header')) nav.classList.remove('open'); });
-  </script>
+  
+  // Mega-menu hover — keep open when moving mouse between trigger and panel
+  (function() {
+    var dropdown = document.querySelector('.nav-dropdown');
+    var menu = document.querySelector('.nav-dropdown-menu');
+    if (!dropdown || !menu) return;
+    var closeTimer;
+    function openMenu() { clearTimeout(closeTimer); menu.style.display = 'block'; }
+    function scheduleClose() { closeTimer = setTimeout(function() { menu.style.display = ''; }, 120); }
+    dropdown.addEventListener('mouseenter', openMenu);
+    dropdown.addEventListener('mouseleave', scheduleClose);
+    menu.addEventListener('mouseenter', openMenu);
+    menu.addEventListener('mouseleave', scheduleClose);
+  })();
+</script>
 </body>
 </html>
