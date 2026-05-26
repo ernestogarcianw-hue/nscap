@@ -57,24 +57,24 @@ header .container {
 
 .nav-dropdown-menu {
   display: none;
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  padding-top: 14px;
+  position: fixed;
+  top: 100px;
+  left: 0;
+  right: 0;
+  width: 100%;
   z-index: 200;
-  width: 860px;
 }
 
 .nav-dropdown-menu-inner {
   background: white;
-  border-radius: 18px;
-  box-shadow: 0 20px 70px rgba(26,58,82,0.18);
-  border: 1px solid #e8edf2;
-  padding: 20px;
+  border-top: 3px solid #c9a961;
+  box-shadow: 0 20px 60px rgba(26,58,82,0.18);
+  padding: 28px 40px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 /* Each mega card */
@@ -134,8 +134,9 @@ header .container {
   .nav-dropdown-menu {
     display: block;
     position: static;
-    transform: none;
-    padding-top: 4px;
+    top: auto;
+    left: auto;
+    right: auto;
     width: 100%;
   }
   .nav-dropdown-menu-inner {
@@ -143,10 +144,12 @@ header .container {
     flex-direction: column;
     gap: 4px;
     background: transparent;
-    border-radius: 0;
+    border-top: none;
     box-shadow: none;
     border: none;
     padding: 0 0 4px 14px;
+    max-width: none;
+    margin: 0;
   }
   .nav-dropdown-menu a {
     flex-direction: row !important;
