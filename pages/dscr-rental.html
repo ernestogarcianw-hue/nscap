@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="DSCR & Rental Bridge Loans | North Star Capital — Private bridge financing for BRRRR investors, landlords, and buy-and-hold rental acquisitions. DSCR underwriting, no personal income verification.">
+  <meta property="og:title" content="DSCR & Rental Bridge Loans | North Star Capital">
+  <meta property="og:description" content="Bridge loans for rental acquisitions, BRRRR strategy, and portfolio holds. DSCR underwriting — the deal qualifies itself. Terms in 24 hours across 46 states.">
+  <meta property="og:type" content="website">
+  <title>DSCR &amp; Rental Bridge Loans | North Star Capital</title>
+  <link rel="icon" type="image/png" href="../favicon.png">
+  <link rel="stylesheet" href="../styles.css">
+  <style>
+    /* ---- Program Hero ---- */
+    .program-hero {
+      position: relative;
+      min-height: 320px;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+    }
+    .program-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1200&q=80');
+      background-size: cover;
+      background-position: center;
+      z-index: 0;
+    }
+    .program-hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(26,58,82,0.55) 0%, rgba(26,58,82,0.9) 100%);
+      z-index: 1;
+    }
+    .program-hero .container {
+      position: relative;
+      z-index: 2;
+      padding: 60px 20px;
+      color: white;
+    }
+    .program-hero h1 { font-size: 2.8rem; font-weight: 900; margin-bottom: 0.5rem; line-height: 1.15; }
+    .program-hero .tagline { font-size: 1.2rem; color: #c9a961; font-weight: 600; margin-bottom: 0.75rem; }
+    .program-hero p { font-size: 1.05rem; color: rgba(255,255,255,0.85); max-width: 620px; line-height: 1.7; }
+
+    /* ---- Content sections ---- */
+    .program-section { padding: 56px 0; border-bottom: 1px solid #e8e8e8; }
+    .program-section:last-of-type { border-bottom: none; }
+    .program-section h2 { color: #1a3a52; font-size: 1.7rem; margin-bottom: 1.2rem; }
+    .program-section p { color: #555; line-height: 1.8; margin-bottom: 1rem; font-size: 1.02rem; }
+
+    /* ---- Terms grid ---- */
+    .terms-table { width: 100%; border-collapse: collapse; margin-top: 8px; }
+    .terms-table tr { border-bottom: 1px solid #f0f0f0; }
+    .terms-table tr:last-child { border-bottom: none; }
+    .terms-table td { padding: 13px 10px; font-size: 0.97rem; }
+    .terms-table td:first-child { color: #1a3a52; font-weight: 700; width: 44%; }
+    .terms-table td:last-child { color: #555; }
+
+    /* ---- Process steps ---- */
+    .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 28px; margin-top: 28px; }
+    .step { background: #f8f9fa; border-radius: 10px; padding: 28px 22px; border-top: 4px solid #c9a961; }
+    .step .step-num { font-size: 2rem; font-weight: 900; color: #c9a961; line-height: 1; margin-bottom: 10px; }
+    .step h3 { color: #1a3a52; font-size: 1.05rem; font-weight: 700; margin-bottom: 8px; }
+    .step p { color: #555; font-size: 0.92rem; line-height: 1.6; margin: 0; }
+
+    /* ---- Ideal-for tags ---- */
+    .ideal-for { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px; }
+    .ideal-tag { background: #f0f4f8; color: #2d5a7b; padding: 7px 18px; border-radius: 20px; font-size: 0.87rem; font-weight: 600; border: 1px solid #d0dce8; }
+
+    /* ---- Two-col layout ---- */
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+    .col-block h3 { color: #1a3a52; font-size: 1rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px; border-bottom: 2px solid #c9a961; padding-bottom: 6px; }
+
+    /* ---- CTA ---- */
+    .cta-band { background: linear-gradient(135deg, #1a3a52 0%, #2d5a7b 100%); color: white; text-align: center; padding: 70px 20px; }
+    .cta-band h2 { color: white; font-size: 2rem; margin-bottom: 1rem; }
+    .cta-band p { color: rgba(255,255,255,0.8); max-width: 540px; margin: 0 auto 2rem; font-size: 1.05rem; line-height: 1.7; }
+    .cta-btn { display: inline-block; background: #c9a961; color: white; padding: 15px 40px; border-radius: 50px; font-weight: 700; font-size: 1rem; text-decoration: none; transition: background 0.2s, transform 0.15s; margin: 6px; }
+    .cta-btn:hover { background: #b8944f; transform: translateY(-2px); }
+    .cta-btn.secondary { background: transparent; border: 2px solid rgba(255,255,255,0.6); }
+    .cta-btn.secondary:hover { background: rgba(255,255,255,0.1); }
+
+    /* ---- Breadcrumb ---- */
+    .breadcrumb { padding: 14px 0; font-size: 0.88rem; color: #888; }
+    .breadcrumb a { color: #2d5a7b; text-decoration: none; }
+    .breadcrumb a:hover { text-decoration: underline; }
+    .breadcrumb span { margin: 0 6px; }
+
+    @media (max-width: 768px) {
+      .program-hero h1 { font-size: 2rem; }
+      .two-col { grid-template-columns: 1fr; gap: 28px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <div class="logo">
+      <a href="../index.html" class="logo">
+        <img src="../logo.png" alt="North Star Capital">
+      </a>
+    </div>
+    <nav class="main-nav" id="mainNav">
+      <div class="nav-dropdown">
+        <a href="loan-programs.html" class="active">Loan Programs</a>
+        <div class="nav-dropdown-menu">
+        <div class="nav-dropdown-menu-inner">
+          <a href="fix-and-flip.html">Fix &amp; Flip</a>
+          <a href="dscr-rental.html">DSCR / Rental Bridge</a>
+          <a href="ground-up-construction.html">Ground-Up Construction</a>
+        </div>
+        </div>
+      </div>
+      <a href="where-we-lend.html">Where We Lend</a>
+      <a href="about.html">About</a>
+      <a href="../index.html#scenario-form" class="nav-cta-btn">Submit a Scenario →</a>
+    </nav>
+    <button class="hamburger-btn" id="hamburgerBtn" aria-label="Toggle navigation">☰</button>
+  </div>
+</header>
+
+<!-- Hero -->
+<section class="program-hero">
+  <div class="container">
+    <p class="tagline">DSCR &amp; Rental Bridge Loans</p>
+    <h1>Acquire, Stabilize, Hold.<br>Or Refinance and Repeat.</h1>
+    <p>Bridge financing for BRRRR investors, buy-and-hold landlords, and rental portfolio builders. DSCR underwriting means we qualify the property — not your W-2.</p>
+  </div>
+</section>
+
+<main>
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="../index.html">Home</a>
+      <span>›</span>
+      <a href="loan-programs.html">Loan Programs</a>
+      <span>›</span>
+      DSCR &amp; Rental Bridge
+    </div>
+  </div>
+
+  <!-- Intro -->
+  <section class="program-section">
+    <div class="container">
+      <h2>The Capital Bridge Between Deal and Portfolio.</h2>
+      <p>Rental property investors move differently than flippers. You're thinking about cash flow, equity build, and the long game. Our rental bridge loans are structured around that mindset — fast capital to acquire or stabilize a property, with a clear path to permanent financing.</p>
+      <p>Whether you're executing the BRRRR strategy, building a single-family rental portfolio, or acquiring a small multi-family, we bridge the gap between your purchase and your long-term refi. We underwrite on the property's income potential and current value — not your tax returns or employment history.</p>
+      <p>Vacant or tenanted, transitional or stabilized — if the numbers work on the asset, we can fund it.</p>
+    </div>
+  </section>
+
+  <!-- Loan Terms + Ideal For -->
+  <section class="program-section" style="background: #f8f9fa; padding: 56px 0;">
+    <div class="container">
+      <div class="two-col">
+        <div class="col-block">
+          <h3>Loan Terms</h3>
+          <table class="terms-table">
+            <tr><td>LTV</td><td>Up to 75% of as-is or stabilized value</td></tr>
+            <tr><td>DSCR Minimum</td><td>1.0x preferred (exceptions considered)</td></tr>
+            <tr><td>Loan Term</td><td>6–24 months</td></tr>
+            <tr><td>Interest Rate</td><td>8–11% (based on asset &amp; leverage)</td></tr>
+            <tr><td>Origination Fee</td><td>2–3 points</td></tr>
+            <tr><td>Loan Size</td><td>$100,000 – $5,000,000</td></tr>
+            <tr><td>Occupancy</td><td>Vacant or tenanted accepted</td></tr>
+            <tr><td>Closing Time</td><td>5–10 business days</td></tr>
+            <tr><td>Available In</td><td>46 states</td></tr>
+          </table>
+        </div>
+        <div class="col-block">
+          <h3>Ideal For</h3>
+          <div class="ideal-for">
+            <span class="ideal-tag">BRRRR strategy</span>
+            <span class="ideal-tag">Buy-and-hold SFR</span>
+            <span class="ideal-tag">Long-term rental holds</span>
+            <span class="ideal-tag">Portfolio acquisitions</span>
+            <span class="ideal-tag">Stabilization bridge</span>
+            <span class="ideal-tag">Multi-family 2–8 units</span>
+            <span class="ideal-tag">Lease-up period</span>
+            <span class="ideal-tag">Cash-out refi bridge</span>
+          </div>
+          <h3 style="margin-top: 28px;">What We Underwrite On</h3>
+          <table class="terms-table">
+            <tr><td>As-Is / Stabilized Value</td><td>Primary collateral basis</td></tr>
+            <tr><td>Market Rents</td><td>Used for DSCR calculation</td></tr>
+            <tr><td>Exit Strategy</td><td>Refi to conventional or DSCR loan</td></tr>
+            <tr><td>Property Condition</td><td>Rentable or near-rentable</td></tr>
+            <tr><td>Rent Roll</td><td>Required if currently tenanted</td></tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="program-section">
+    <div class="container">
+      <h2>How the BRRRR Bridge Process Works</h2>
+      <p>A common use case: buy a rental property with bridge capital, rehab if needed, get it leased up, then refi into a 30-year DSCR loan to recycle your equity and do it again.</p>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">01</div>
+          <h3>Submit Your Rental Deal</h3>
+          <p>Share the property address, purchase price, current or projected rents, and your exit plan. We respond with terms in 24 hours.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">02</div>
+          <h3>DSCR Review &amp; Approval</h3>
+          <p>We assess the property's value and income potential. No W-2s, no personal income docs — the asset qualifies itself.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">03</div>
+          <h3>Fund &amp; Stabilize</h3>
+          <p>Close in 5–10 business days. Use the bridge period to renovate, lease up, or season rents — whatever your hold strategy requires.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">04</div>
+          <h3>Refi &amp; Repeat</h3>
+          <p>Once stabilized, refinance into a long-term DSCR loan. Pull equity back out. Repeat on the next deal.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- CTA -->
+<div class="cta-band">
+  <div class="container">
+    <h2>Have a Rental Deal in the Pipeline?</h2>
+    <p>Submit your scenario and get indicative terms within 24 hours. No credit pull, no obligation.</p>
+    <a href="../index.html#scenario-form" class="cta-btn">Submit a Scenario →</a>
+    <a href="contact.html" class="cta-btn secondary">Talk to Us First</a>
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <p>&copy; 2026 North Star Capital. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+  const hamburger = document.getElementById('hamburgerBtn');
+  const nav = document.getElementById('mainNav');
+  hamburger.addEventListener('click', (e) => { e.stopPropagation(); nav.classList.toggle('open'); });
+  document.addEventListener('click', (e) => { if (!e.target.closest('header')) nav.classList.remove('open'); });
+</script>
+</body>
+</html>
