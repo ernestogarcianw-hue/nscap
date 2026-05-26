@@ -130,6 +130,19 @@ header .container {
 .mega-desc { font-size: 0.78rem; color: #777; line-height: 1.55; }
 
 
+/* Mid-size (split-screen / tablet): keep 3 cols but compress */
+@media (max-width: 1100px) and (min-width: 861px) {
+  .nav-dropdown-menu-inner {
+    padding: 16px 16px;
+    gap: 12px;
+  }
+  .mega-img { height: 110px; }
+  .mega-body { padding: 10px 12px 12px; }
+  .mega-title { font-size: 0.88rem; }
+  .mega-desc { font-size: 0.72rem; }
+  .mega-badge { font-size: 0.56rem; padding: 3px 8px; }
+}
+
 /* Mobile: simple stacked links */
 @media (max-width: 860px) {
   .nav-dropdown { flex-direction: column; align-items: flex-start; width: 100%; }
