@@ -63,8 +63,6 @@ header .container {
   top: 100px;
   left: 0;
   right: 0;
-  /* no width — left+right stretches correctly without scrollbar overflow */
-  overflow-x: clip;
   z-index: 200;
 }
 
@@ -80,7 +78,6 @@ header .container {
   width: 100%;
   margin: 0 auto;
   box-sizing: border-box;
-  overflow: hidden;
 }
 
 /* Each mega card */
