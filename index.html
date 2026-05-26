@@ -117,6 +117,38 @@
   </style>
 </head>
 <body>
+  <!-- Mega-menu panel: direct child of body so position:fixed is always viewport-relative -->
+  <div class="nav-dropdown-menu" id="megaMenu">
+    <div class="nav-dropdown-menu-inner">
+      <a href="pages/fix-and-flip.html">
+        <div class="mega-img" style="background-image:url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=800&q=80')">
+          <span class="mega-badge">For Flippers</span>
+        </div>
+        <div class="mega-body">
+          <div class="mega-title"><span>Fix</span> &amp; Flip</div>
+          <div class="mega-desc">Short-term acquisition + rehab. Asset-based underwriting. Close in 5–10 days.</div>
+        </div>
+      </a>
+      <a href="pages/dscr-rental.html">
+        <div class="mega-img" style="background-image:url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&q=80')">
+          <span class="mega-badge">For Landlords</span>
+        </div>
+        <div class="mega-body">
+          <div class="mega-title"><span>DSCR</span> Loans</div>
+          <div class="mega-desc">BRRRR, buy-and-hold, and rental portfolio growth. Qualify on cash flow, not income.</div>
+        </div>
+      </a>
+      <a href="pages/ground-up-construction.html">
+        <div class="mega-img" style="background-image:url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80')">
+          <span class="mega-badge">For Builders</span>
+        </div>
+        <div class="mega-body">
+          <div class="mega-title"><span>Ground-Up</span> Construction</div>
+          <div class="mega-desc">Infill, SFR new builds, small multi-family. Inspection-based draws through CO.</div>
+        </div>
+      </a>
+    </div>
+  </div>
   <header>
     <div class="container">
       <div class="logo">
@@ -127,37 +159,6 @@
       <nav class="main-nav" id="mainNav">
         <div class="nav-dropdown">
           <a href="pages/loan-programs.html">Loan Programs</a>
-          <div class="nav-dropdown-menu">
-          <div class="nav-dropdown-menu-inner">
-            <a href="pages/fix-and-flip.html">
-              <div class="mega-img" style="background-image:url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=800&q=80')">
-                <span class="mega-badge">For Flippers</span>
-              </div>
-              <div class="mega-body">
-                <div class="mega-title"><span>Fix</span> &amp; Flip</div>
-                <div class="mega-desc">Short-term acquisition + rehab. Asset-based underwriting. Close in 5–10 days.</div>
-              </div>
-            </a>
-            <a href="pages/dscr-rental.html">
-              <div class="mega-img" style="background-image:url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&q=80')">
-                <span class="mega-badge">For Landlords</span>
-              </div>
-              <div class="mega-body">
-                <div class="mega-title"><span>DSCR</span> Loans</div>
-                <div class="mega-desc">BRRRR, buy-and-hold, and rental portfolio growth. Qualify on cash flow, not income.</div>
-              </div>
-            </a>
-            <a href="pages/ground-up-construction.html">
-              <div class="mega-img" style="background-image:url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80')">
-                <span class="mega-badge">For Builders</span>
-              </div>
-              <div class="mega-body">
-                <div class="mega-title"><span>Ground-Up</span> Construction</div>
-                <div class="mega-desc">Infill, SFR new builds, small multi-family. Inspection-based draws through CO.</div>
-              </div>
-            </a>
-          </div>
-          </div>
         </div>
         <a href="pages/where-we-lend.html">Where We Lend</a>
         <a href="pages/about.html">About</a>
@@ -361,17 +362,11 @@
     hamburger.addEventListener('click', (e) => { e.stopPropagation(); nav.classList.toggle('open'); });
     document.addEventListener('click', (e) => { if (!e.target.closest('header')) nav.classList.remove('open'); });
   
-  // Mega-menu hover — move panel to <body> to escape all containing blocks,
-  // then wire up hover to keep open when moving between trigger and panel
+  // Mega-menu hover
   (function() {
     var dropdown = document.querySelector('.nav-dropdown');
-    var menu = document.querySelector('.nav-dropdown-menu');
+    var menu = document.getElementById('megaMenu');
     if (!dropdown || !menu) return;
-
-    // Detach from header and reattach to <body> so position:fixed is
-    // always relative to the viewport, never a parent's containing block
-    document.body.appendChild(menu);
-
     var closeTimer;
     function openMenu() { clearTimeout(closeTimer); menu.style.display = 'block'; }
     function scheduleClose() { closeTimer = setTimeout(function() { menu.style.display = ''; }, 200); }
