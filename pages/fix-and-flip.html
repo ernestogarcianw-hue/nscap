@@ -270,7 +270,7 @@
     if (!dropdown || !menu) return;
     var closeTimer;
     function openMenu() { clearTimeout(closeTimer); menu.style.display = 'block'; }
-    function scheduleClose() { closeTimer = setTimeout(function() { menu.style.display = ''; }, 120); }
+    function scheduleClose() { closeTimer = setTimeout(function() { menu.style.display = ''; }, 200); }
     dropdown.addEventListener('mouseenter', openMenu);
     dropdown.addEventListener('mouseleave', scheduleClose);
     menu.addEventListener('mouseenter', openMenu);
