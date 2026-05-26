@@ -15,7 +15,23 @@
   <link rel="stylesheet" href="styles.css">
   <style>
     /* ---- Hero ---- */
-    .hero { background: linear-gradient(135deg, #1a3a52 0%, #2d5a7b 100%); color: white; padding: 100px 0 80px; text-align: center; }
+    .hero {
+      position: relative;
+      background-image: url('https://images.unsplash.com/photo-1448630360428-65456885c650?w=1600&q=80');
+      background-size: cover;
+      background-position: center 60%;
+      color: white;
+      padding: 120px 0 100px;
+      text-align: center;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(26,58,82,0.82) 0%, rgba(45,90,123,0.78) 100%);
+      z-index: 0;
+    }
+    .hero .container { position: relative; z-index: 1; }
     .hero h1 { font-size: 3rem; margin-bottom: 1rem; line-height: 1.2; }
     .hero p { font-size: 1.3rem; margin-bottom: 2rem; opacity: 0.9; }
 
