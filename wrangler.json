@@ -4,9 +4,16 @@
   "compatibility_flags": ["nodejs_compat"],
   "assets": {
     "directory": ".",
+    "not_found_handling": "404-page"
   },
   "observability": {
     "enabled": true
   },
-  "upload_source_maps": true
+  "upload_source_maps": true,
+  "analytics_engine_datasets": [
+    {
+      "binding": "ANALYTICS",
+      "dataset": "nscap_events"
+    }
+  ]
 }
