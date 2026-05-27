@@ -69,6 +69,9 @@
     /* ---- Ideal-for tags ---- */
     .ideal-for { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px; }
     .ideal-tag { background: #f0f4f8; color: #2d5a7b; padding: 7px 18px; border-radius: 20px; font-size: 0.87rem; font-weight: 600; border: 1px solid #d0dce8; }
+    .ideal-tag::before { content: '✓  '; color: #2a8a4a; }
+    .ineligible-tag { background: #fdf3f3; color: #888; padding: 7px 18px; border-radius: 20px; font-size: 0.87rem; font-weight: 500; border: 1px solid #f0d0d0; text-decoration: line-through; }
+    .ineligible-tag::before { content: '✕  '; color: #c0392b; text-decoration: none; display: inline-block; }
 
     /* ---- Two-col layout ---- */
     .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
@@ -202,16 +205,17 @@
           </table>
         </div>
         <div class="col-block">
-          <h3>Ideal For</h3>
+          <h3>Eligible Properties</h3>
           <div class="ideal-for">
             <span class="ideal-tag">New construction SFR</span>
-            <span class="ideal-tag">Infill development</span>
-            <span class="ideal-tag">Small multi-family builds</span>
+            <span class="ideal-tag">Duplex / triplex / fourplex builds</span>
+            <span class="ideal-tag">Small multi-family (5–8 units)</span>
             <span class="ideal-tag">Teardown &amp; rebuild</span>
+            <span class="ideal-tag">Infill / spec homes</span>
             <span class="ideal-tag">ADU construction (min. $200K project cost)</span>
-            <span class="ideal-tag">Spec homes</span>
-            <span class="ideal-tag">Duplex / triplex builds</span>
-            <span class="ideal-tag">Lot + build packages</span>
+            <span class="ineligible-tag">Commercial</span>
+            <span class="ineligible-tag">Entitled land only (plans must be approved)</span>
+            <span class="ineligible-tag">Zero prior GUC experience</span>
           </div>
           <h3 style="margin-top: 28px;">What We Underwrite On</h3>
           <table class="terms-table">

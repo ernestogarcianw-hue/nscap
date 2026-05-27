@@ -69,6 +69,9 @@
     /* ---- Ideal-for tags ---- */
     .ideal-for { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px; }
     .ideal-tag { background: #f0f4f8; color: #2d5a7b; padding: 7px 18px; border-radius: 20px; font-size: 0.87rem; font-weight: 600; border: 1px solid #d0dce8; }
+    .ideal-tag::before { content: '✓  '; color: #2a8a4a; }
+    .ineligible-tag { background: #fdf3f3; color: #888; padding: 7px 18px; border-radius: 20px; font-size: 0.87rem; font-weight: 500; border: 1px solid #f0d0d0; text-decoration: line-through; }
+    .ineligible-tag::before { content: '✕  '; color: #c0392b; text-decoration: none; display: inline-block; }
 
     /* ---- Two-col layout ---- */
     .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
@@ -202,16 +205,16 @@
           <p style="font-size:0.78rem; color:#666; margin-top:10px; line-height:1.5;">*Third-party fees apply (appraisal, title, escrow, etc.). Rates subject to change. Available to qualified borrowers.</p>
         </div>
         <div class="col-block">
-          <h3>Ideal For</h3>
+          <h3>Eligible Properties</h3>
           <div class="ideal-for">
-            <span class="ideal-tag">BRRRR strategy</span>
-            <span class="ideal-tag">Buy-and-hold SFR</span>
-            <span class="ideal-tag">Long-term rental holds</span>
-            <span class="ideal-tag">Portfolio acquisitions</span>
-            <span class="ideal-tag">Multi-family 2–8 units</span>
-            <span class="ideal-tag">Lease-up period</span>
-            <span class="ideal-tag">Cash-out refinance</span>
-            <span class="ideal-tag">Short-term rental (STR / Airbnb)</span>
+            <span class="ideal-tag">Single-family rentals (SFR)</span>
+            <span class="ideal-tag">2–8 unit multi-family</span>
+            <span class="ideal-tag">Condos &amp; townhomes</span>
+            <span class="ideal-tag">Short-term rentals (STR / Airbnb / VRBO)</span>
+            <span class="ideal-tag">Leased or vacant</span>
+            <span class="ineligible-tag">Owner-occupied</span>
+            <span class="ineligible-tag">Commercial</span>
+            <span class="ineligible-tag">9+ units</span>
           </div>
           <h3 style="margin-top: 28px;">What We Underwrite On</h3>
           <table class="terms-table">
