@@ -142,45 +142,11 @@ header .container {
 
 /* Mobile: simple stacked links */
 @media (max-width: 860px) {
+  /* Hide the mega-menu panel entirely on mobile — it lives before <header> in the DOM
+     and would render above the header as a static block. Mobile uses the hamburger nav. */
+  #megaMenu { display: none !important; }
+
   .nav-dropdown { flex-direction: column; align-items: flex-start; width: 100%; }
-  .nav-dropdown-menu {
-    display: block;
-    position: static;
-    top: auto;
-    left: auto;
-    right: auto;
-    width: 100%;
-  }
-  .nav-dropdown-menu-inner {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-    background: transparent;
-    border-top: none;
-    box-shadow: none;
-    border: none;
-    padding: 0 0 4px 14px;
-    max-width: none;
-    margin: 0;
-  }
-  .nav-dropdown-menu a {
-    flex-direction: row !important;
-    align-items: center !important;
-    background: rgba(255,255,255,0.08) !important;
-    border-color: rgba(255,255,255,0.2) !important;
-    border-radius: 8px !important;
-    padding: 10px 14px !important;
-    color: white !important;
-    transform: none !important;
-  }
-  .nav-dropdown-menu a:hover {
-    background: rgba(201,169,97,0.2) !important;
-    border-color: rgba(201,169,97,0.5) !important;
-  }
-  .mega-img, .mega-badge, .mega-desc { display: none; }
-  .mega-body { padding: 0; }
-  .mega-title { font-size: 0.9rem; color: white; margin: 0; }
-  .mega-title span { color: #c9a961; }
 }
 
 /* ----- Horizontal Nav ----- */
