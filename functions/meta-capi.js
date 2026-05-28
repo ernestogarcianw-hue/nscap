@@ -52,10 +52,14 @@ export async function onRequestPost({ request, env }) {
       ...(custom_data && Object.keys(custom_data).length && { custom_data }),
     };
 
+    const testCode = env.META_TEST_EVENT_CODE;
+    const payload = { data: [event] };
+    if (testCode) payload.test_event_code = testCode;
+
     const res = await fetch(`${CAPI_URL}?access_token=${token}`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ data: [event] }),
+      body: JSON.stringify(payload),
     });
     return resp(await res.json(), res.status);
   } catch (err) {
