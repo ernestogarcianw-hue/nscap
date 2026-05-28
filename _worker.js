@@ -32,7 +32,11 @@ export default {
 async function handleCAPI(request, env) {
   try {
     const token = env.META_CAPI_TOKEN;
-    if (!token) return resp({ error: 'META_CAPI_TOKEN secret not configured' }, 500);
+    if (!token) {
+      const keys = [];
+      try { for (const k in env) keys.push(k); } catch(e) { keys.push('err:' + e.message); }
+      return resp({ error: 'META_CAPI_TOKEN not configured', env_keys: keys, has_assets: !!env.ASSETS }, 500);
+    }
 
     const { event_name, event_id, event_source_url, user_data = {}, custom_data } = await request.json();
     if (!event_name) return resp({ error: 'event_name required' }, 400);
