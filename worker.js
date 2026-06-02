@@ -40,8 +40,9 @@ async function handleCAPI(request, env) {
     const ip = request.headers.get('CF-Connecting-IP') || '';
     const ua = request.headers.get('User-Agent') || '';
     const cookies = request.headers.get('Cookie') || '';
-    const fbp = cookies.match(/_fbp=([^;]+)/)?.[1];
-    const fbc = cookies.match(/_fbc=([^;]+)/)?.[1];
+    // Prefer values from request body (set by tracker.js), fall back to cookies
+    const fbp = user_data.fbp || cookies.match(/_fbp=([^;]+)/)?.[1];
+    const fbc = user_data.fbc || cookies.match(/_fbc=([^;]+)/)?.[1];
 
     const ud = {
       client_ip_address: ip,

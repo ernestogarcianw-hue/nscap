@@ -10,16 +10,51 @@
     if (typeof gtag === 'function') gtag('event', eventName, params);
   }
 
-  // ─── Meta CAPI ───────────────────────────────────────────────────────────
+  // ─── Meta helpers ─────────────────────────────────────────────────────────
   function genId() {
     return Date.now().toString(36) + Math.random().toString(36).slice(2, 9);
   }
 
+  // Read a cookie by name
+  function getCookie(name) {
+    var match = document.cookie.match(new RegExp('(?:^|;\\s*)' + name + '=([^;]*)'));
+    return match ? match[1] : null;
+  }
+
+  // Build fbc from URL ?fbclid= param; persist in cookie for 90 days
+  function getFbc() {
+    var params = new URLSearchParams(window.location.search);
+    var fbclid = params.get('fbclid');
+    if (fbclid) {
+      var fbc = 'fb.1.' + Date.now() + '.' + fbclid;
+      document.cookie = '_fbc=' + fbc + ';path=/;max-age=7776000;SameSite=Lax';
+      return fbc;
+    }
+    return getCookie('_fbc') || null;
+  }
+
+  // Get or create fbp browser ID cookie (fallback if pixel blocked)
+  function getFbp() {
+    var fbp = getCookie('_fbp');
+    if (!fbp) {
+      fbp = 'fb.1.' + Date.now() + '.' + Math.floor(Math.random() * 2147483647);
+      document.cookie = '_fbp=' + fbp + ';path=/;max-age=7776000;SameSite=Lax';
+    }
+    return fbp;
+  }
+
+  var fbc = getFbc();
+  var fbp = getFbp();
+
+  // ─── Meta CAPI ───────────────────────────────────────────────────────────
   function metaSend(eventName, userData, customData) {
     var eventId = genId();
     if (typeof fbq === 'function') {
       fbq('track', eventName, customData || {}, { eventID: eventId });
     }
+    var ud = Object.assign({}, userData || {});
+    if (fbc) ud.fbc = fbc;
+    if (fbp) ud.fbp = fbp;
     fetch('/meta-capi', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -27,7 +62,7 @@
         event_name: eventName,
         event_id: eventId,
         event_source_url: window.location.href,
-        user_data: userData || {},
+        user_data: ud,
         custom_data: customData || {},
       }),
       keepalive: true,
