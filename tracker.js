@@ -43,8 +43,29 @@
     return fbp;
   }
 
+  // Get or create a persistent anonymous External ID (stored in localStorage)
+  // This lets Meta match the same visitor across multiple sessions/events
+  function getExternalId() {
+    try {
+      var key = 'nscap_eid';
+      var eid = localStorage.getItem(key);
+      if (!eid) {
+        // Generate a UUID v4-like identifier
+        eid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+          var r = Math.random() * 16 | 0;
+          return (c === 'x' ? r : (r & 0x3 | 0x8)).toString(16);
+        });
+        localStorage.setItem(key, eid);
+      }
+      return eid;
+    } catch (e) {
+      return null; // localStorage blocked (private browsing, etc.)
+    }
+  }
+
   var fbc = getFbc();
   var fbp = getFbp();
+  var externalId = getExternalId();
 
   // ─── Meta CAPI ───────────────────────────────────────────────────────────
   function metaSend(eventName, userData, customData) {
@@ -55,6 +76,7 @@
     var ud = Object.assign({}, userData || {});
     if (fbc) ud.fbc = fbc;
     if (fbp) ud.fbp = fbp;
+    if (externalId) ud.external_id = externalId;
     fetch('/meta-capi', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },

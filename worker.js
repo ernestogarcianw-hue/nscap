@@ -54,6 +54,7 @@ async function handleCAPI(request, env) {
     if (user_data.ph) ud.ph = await sha256(user_data.ph.replace(/\D/g, ''));
     if (user_data.fn) ud.fn = await sha256(user_data.fn.toLowerCase().trim());
     if (user_data.ln) ud.ln = await sha256(user_data.ln.toLowerCase().trim());
+    if (user_data.external_id) ud.external_id = await sha256(user_data.external_id.trim());
 
     const event = {
       event_name,
